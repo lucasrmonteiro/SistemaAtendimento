@@ -1,0 +1,18 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "Ação SAP";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-5">
+        Status: 
+        @Html.DropDownListFor(model => model.Status.CodigoStatusTicket, new SelectList(ViewBag.Vstatus, "CodigoStatusTicket", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_status_acao", @class = "form-control" })
+        <br />
+        Categoria: 
+        @Html.DropDownListFor(model => model.Categoria.CodigoCategoria, new SelectList(ViewBag.Vcategoria, "CodigoCategoria", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_categoria", @class = "form-control" })
+        <br />
+        Notas: @Html.TextArea("notes", new { rows = 10, columns = 40, @class = "form-control", @id = "id_notas" })
+    </div>
+</div>

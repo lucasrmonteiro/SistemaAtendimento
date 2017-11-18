@@ -1,0 +1,342 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "_TabelasConsultaTicket";
+}
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Atendimento</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-4">Número: @Html.TextBoxFor(model => model.Id_Atendimento, new { id = "Id_Atendimento", @class = "form-control input-sm" })</div>
+                            <div class="col-md-4">SLA Cliente: @Html.DisplayFor(model => model.SLA_Cliente, new { id = "sla" })</div>
+                            <div class="col-md-4">Aging: @Html.DisplayFor(model => model.Aging, new { id = "agin" })</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">Responsável:@Html.TextBoxFor(model => model.Responsavel, new { id = "Id_resp", @class = "form-control input-sm" })</div>
+                            <div class="col-md-4">Atividade: @Html.DisplayFor(model => model.Atividade, new { id = "atividade" }) </div>
+                            <div class="col-md-4">Bandeira: @Html.DisplayFor(model => model.Bandeira, new { id = "bandeira" }).</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">Fluxo: @Html.DisplayFor(model => model.Fluxo.DescricaoFluxoAtendimento, new { id = "fluxo" })</div>
+                            <div class="col-md-4">Última Importação : @Html.DisplayFor(model => model.Dt_importacao, new { id = "dt_importacao" })</div>
+                            <div class="col-md-4">Última Exportação : @Html.DisplayFor(model => model.Dt_exportacao, new { id = "dt_exportacao" })</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">Data Criação: @Html.TextBoxFor(model => model.Dt_criacao, new { id = "dt_criacao", @class = "form-control input-sm teste" })</div>
+                            <div class="col-md-4">Data Extração: @Html.TextBoxFor(model => model.Dt_extracao, new { id = "dt_extracao", @class = "form-control input-sm datepicker" })</div>
+                            <div class="col-md-4">Data Encerramento: @Html.TextBoxFor(model => model.Dt_encerramento, new { id = "Dt_encerramento", @class = "form-control input-sm datepicker" })</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                Demanda:
+                                @Html.DropDownListFor(model => model.Demanda.Codigo, new SelectList(ViewBag.Vdemanda, "Codigo", "DescricaoDemanda"), ViewMessagesResource.common_label_selecione, new { @id = "id_demanda", @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                Tipo da Solicitação:
+                                @Html.DropDownListFor(model => model.Solicitacao.CodigoTipoSolicitacao, new SelectList(ViewBag.Vsolictacao, "CodigoTipoSolicitacao", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_solicitacao", @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                Status:
+                                @Html.DropDownListFor(model => model.Status.CodigoStatusTicket, new SelectList(ViewBag.Vstatus, "CodigoStatusTicket", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_status", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;&nbsp;<input type="button" id="consultar" value=" Consultar " class="btn btn-default" />&nbsp;&nbsp;<input id="limpar" class="btn btn-default" type="button" value=" Limpar " /></div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="gridTckets">
+    @Html.Partial("_GridTickets", Model)
+</div>
+
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse3">Histórico<img src="~/Content/Images/arrow.png" /></a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>*</th>
+                                <th>Início</th>
+                                <th>Fim</th>
+                                <th>Responsável</th>
+                                <th>Status</th>
+                                <th>Anotações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.Historico != null)
+                                {
+                                    int h = 1;
+                                    foreach (var item in Model.Historico)
+                                    {
+                                        <tr>
+                                            <th scope="row">@h</th>
+                                            <td>@item.DataInicio</td>
+                                            <td>@item.DataFim</td>
+                                            <td>@item.TbTicket.Notas.First().TbUsuario.Dsc_nome</td>
+                                            <td>@item.TbStatusTicket.Descricao</td>
+                                            <td>@item.Anotacoes</td>
+                                        </tr>
+                                        h++;
+                                    }
+                                }
+                            }
+                            
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse4">Notas<img src="~/Content/Images/arrow.png" /></a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>*</th>
+                            <th>Nota</th>
+                            <th>Nota de Regularização</th>
+                            <th>Pendência de NS</th>
+                            <th>Tp. Nota</th>
+                            <th>Status da Nota SAP</th>
+                            <th>Status Nota Usuário</th>
+                            <th>Status Atual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (Model.Notas != null)
+                            {
+                                int j = 1;
+                                foreach (var item in Model.Notas)
+                                {
+                                    <tr>
+                                        <th scope="row">@j</th>
+                                        <td>@item.CodigoNota</td>
+                                        <td>@item.NotaRegularizacao</td>
+                                        <td>@item.PendenciaNs</td>
+                                        <td>@item.TipoNota</td>
+                                        <td>@item.StatusNotaSap</td>
+                                        <td>@item.StatusNotaUsuario</td>
+                                        <td>@item.TbStatusNota.Descricao</td>
+                                    </tr>
+                                    j++;
+                                }
+                            }
+                        }
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    @Html.Partial("_GridAcao", Model)
+</div>
+
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse6">Anotações <img src="~/Content/Images/arrow.png" /></a>
+                </h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <textarea class="form-control" rows="3" id="anotacoes"></textarea>
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse7">Mobilidade <img src="~/Content/Images/arrow.png" /></a>
+                </h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+                <div class="panel-body">
+
+
+                    <div class="container">
+                        <div class="row data-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>*</th>
+                                        <th>Nota</th>
+                                        <th>Id Instalação</th>
+                                        <th>Status da OS</th>
+                                        <th>SubCategoria OS</th>
+                                        <th>Zona de Atendimento</th>
+                                        <th>Nome do Gasista</th>
+                                        <th>Registro Gasista</th>
+                                        <th>Viatura</th>
+                                        <th>Data Hora Início Atendimento</th>
+                                        <th>Data hora Fim Atendimento</th>
+                                        <th>Status Nota Usuário</th>
+                                        <th>Endereço/Complemento</th>
+                                        <th>Descrição do Material</th>
+                                        <th>Qtde.</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if (Model.Mobilidade != null)
+                                        {
+                                            int f = 1;
+                                            foreach (var item in Model.Mobilidade)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@f</th>
+                                                    <td>@item.TbNota.CodigoNota</td>
+                                                    <td>@item.StatusOs</td>
+                                                    <td>@item.SubcategoriaOs</td>
+                                                    <td>@item.ZonaAtendimento</td>
+                                                    <td>@item.NomeGasista</td>
+                                                    <td>@item.RegistroGasista</td>
+                                                    <td>@item.Viatura</td>
+                                                    <td>@item.TbNota.InicioAtendimento</td>
+                                                    <td>@item.TbNota.FimAtendimento</td>
+                                                    <td>@item.TbNota.StatusNotaUsuario</td>
+                                                    <td>@item.TbNota.Endereco</td>
+                                                    <td>@item.DescricaoMaterial</td>
+                                                    <td>@item.Quantidade</td>
+                                                    <td>@item.Valor</td>
+                                                </tr>
+                                                f++;
+                                            }
+                                        }
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <style type="text/css">
+                        .data-table {
+                            width: 1100px;
+                            height: 200px;
+                            overflow-x: scroll;
+                            overflow-y: scroll;
+                        }
+                    </style>
+
+
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>

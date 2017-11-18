@@ -1,0 +1,48 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "Ações CAP";
+}
+
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        Nescessidade Outra Area?:@Html.DropDownList("nescessidade", new List<SelectListItem>
+
+                 {
+                    new SelectListItem{ Text="Sim", Value = "1" },
+                    new SelectListItem{ Text="Não", Value = "0" }
+                 }, new { @id = "id_nescessidade", @class = "form-control" })
+        <br />
+        <div class="radio">
+            <label for="y">@Html.RadioButtonFor(m => m.Acoes, "Continuar", new { @class = "radio" ,@onclick = "toggleTextbox('C')" })Continuar</label>
+        </div>
+        <div class="radio">
+            <label for="z">
+                @Html.RadioButtonFor(m => m.Acoes, "Retornar a Etapa", new { @class = "radio", @onclick = "toggleTextbox('R')" })Retornar a Etapa
+                @Html.DropDownListFor(model => model.Etapa.CodigoEtapa, new SelectList(ViewBag.Vetapa, "CodigoEtapa", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_fluxo", @class = "form-control", disabled = "disabled"  })
+            </label>
+        </div>
+        <br />
+        Observações: @Html.TextArea("Observacao", new { rows = 10, columns = 40, @class = "form-control", @id = "id_obs" })
+        <br />
+    </div>
+    <div class="col-md-4">
+        <div class="radio">
+            <label for="z">
+                Ponto Focal da Area para Ação:
+                @Html.DropDownListFor(model => model.PontoFocal.IdPontoFocal, new SelectList(ViewBag.Vponto_focal, "IdPontoFocal", "DescPontoFocal"), ViewMessagesResource.common_label_selecione, new { @id = "id_ponto_focal", @class = "form-control" })
+            </label>
+        </div>
+        <br />
+        Detalhes da Ação Nescessária: @Html.TextArea("detalhes", new { rows = 5, columns = 40, @class = "form-control", @id = "id_detalhes" })
+        <br />
+        Mensagem: @Html.TextArea("messagens", new { rows = 7, columns = 40, @class = "form-control", @id = "id_messagens" })
+    </div>
+    <br />
+    <div class="col-md-4">
+        Anexos:<input type="file" id="fileToUpload" name="file" />
+    </div>
+</div>

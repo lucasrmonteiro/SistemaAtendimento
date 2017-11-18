@@ -1,0 +1,77 @@
+﻿<table id="tbHistorico" class="table table-striped table-bordered table-hover" style="table-layout: fixed; width: 100%;" >
+    <thead>
+        <tr>
+            <td style="width: 30%; vertical-align:middle; text-align: center; ">Arquivo</td>
+            <td style="width: 10%; vertical-align:middle; text-align: center; ">Data/Hora Importação</td>
+            <td style="width: 10%; vertical-align:middle; text-align: center; ">Qtd. Registros Novos</td>
+            <td style="width: 10%; vertical-align:middle; text-align: center; ">Qtd. Registros Atualizados</td>
+            <td style="width: 10%; vertical-align:middle; text-align: center; ">Qtd. Registros com Falha</td>
+            <td style="width: 20%; vertical-align:middle; text-align: center; ">Analista</td>
+            <td style="width: 10%; vertical-align:middle; text-align: center; ">Status</td>
+        </tr>
+    </thead>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var configuracesDataTable = {
+            "language": {
+                "zeroRecords": "Nenhum arquivo encontrado.",
+                "infoEmpty": "Nenhum arquivo encontrado",
+            },
+            "oLanguage": {
+                "oPaginate": {
+                    "sNext": "Próxima Página",
+                    "sPrevious": "Página Anterior",
+                    "sInfo": "Got a total of _TOTAL_ entries to show (_START_ to _END_)"
+                }
+            },
+            "processing": true, // exibe gif indicador de processamento
+            "serverSide": true, // indica que a tabela será preenchida / paginada em serverSide, por questões de performance
+            "info": true,   //mostra informações de controle da tabela control table information display field
+            "stateSave": false,  //desabilita a restauração do estado da tabela no page reload
+            //"lengthMenu": [[2, 20, 50, -1], [2, 20, 50, "All"]],    // menu de quantidade de itens exibidos por página
+            "pageLength": '@ViewBag.TamanhoPagina', //quantidade de registros por página
+            "bFilter": false, // desabilita campo filtro da tabela
+            "bLengthChange": false, // desabilita o menu de quantidade de itens exibidos por página
+            "destroy": true, // Inicializa um novo DataTable caso já exista com um mesmo seletor (ID), será destruído e recriado
+            "ajax": {
+
+                "url": '@Url.Action("AjaxGetJsonData", "Importacao")',
+                "type": "GET"
+
+            },
+            "columnDefs": [
+                    {
+
+                        "aTargets": [1], // Referência a coluna da tabela, FORMATAR CAMPO DATA
+                        "mRender": function (data, type, full) {
+                            if (data) {
+                                var dtStart = new Date(parseInt(data.substr(6)));
+                                var dtStartWrapper = moment(dtStart);
+                                return dtStartWrapper.format('DD/MM/YYYY');
+                            }
+                            else { return ""; }
+                        }
+
+                    }
+            ],
+            "columns": [
+                { "data": "Arquivo", "orderable": false, "width": "30%","word-wrap": "break-word" },
+                { "data": "DataImportacao", "orderable": false, "width": "12%", "word-wrap": "break-word" },
+                { "data": "QtdRegistroNovo", "orderable": false, "width": "10%", "word-wrap": "break-word" },
+                { "data": "QtdRegistroAtualizado", "orderable": false, "width": "12%", "word-wrap": "break-word" },
+                { "data": "QtdRegistroFalha", "orderable": false, "width": "10%", "word-wrap": "break-word" },
+                { "data": "Analista.Dsc_nome", "orderable": true, "width": "15%", "word-wrap": "break-word" },
+                { "data": "Status", "orderable": true, "width": "10%", "word-wrap": "break-word" }
+
+            ],
+            //"order": [[0, "asc"]] // ordenação da coluna 0 ascendente
+            "ordering": false, // desabilita ordenação
+
+        };
+
+        var table = $('#tbHistorico').dataTable(configuracesDataTable);
+    });
+</script>

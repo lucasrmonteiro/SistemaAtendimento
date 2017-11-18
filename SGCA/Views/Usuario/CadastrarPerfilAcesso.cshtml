@@ -1,0 +1,57 @@
+﻿@using SGCA.Models.Entity
+@model SGCA.Models.Entity.Usuario
+@{
+    ViewBag.Title = "Alterar Perfis de Acesso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/CadastrarPerfilAcesso.js"></script>
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewBag.Title</h4>
+    </div>
+
+    <div class="panel-body">
+
+        
+        
+        <h4>@ViewBag.Nome_usuario</h4>
+        <hr />
+        @*Campo Perfil*@
+        @Html.LabelFor(usuario => usuario.Perfil, ViewMessagesResource.common_label_perfil)
+        @foreach (var item in (List<Perfil>)ViewBag.BagPerfis)
+        {
+            <div class="frmLabelCheck">
+                    @Html.CheckBox("perfil_" + item.Id_perfil, new
+                                {
+                                    value = item.Id_perfil,
+                                    title = "Marque aqui a Localidade Desejada.",
+                                    validar = "s",
+                                    @class = "checarValidacao chPerfilSelecionado",
+                                    id = "perfil_" + item.Id_perfil
+                                })
+                
+
+
+                @Html.Label(item.Dsc_descricao, item.Dsc_descricao)
+
+            </div>
+        }
+        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+        <p style="color:red">@Html.ValidationMessage("usuario.Perfil")</p>
+
+        @*Campo Fluxo*@
+        @Html.LabelFor(usuario => usuario.Perfil, "Fluxo de Atendimento")
+        @Html.DropDownList("Codigo", new SelectList(ViewBag.BagFluxos, "Codigo", "DescricaoFluxoAtendimento"), ViewMessagesResource.common_label_selecione, new { @id = "fluxo", @class = "form-control", @style = "width:20%;" })
+        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+
+        <div id="group-buttons">
+            @*Consultar*@
+            <ul id="list-buttons">
+                <li><button type="button" id="btnPesquisar" onclick="alterarPerfilUsu();" class="btn btn-default">@ViewMessagesResource.common_btn_alterar</button></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+@Html.Hidden("hiddenIdUsu", (object)ViewBag.id_Usu.ToString())

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Processo" table="TB_PROCESSO" lazy="true" >
+    <id name="CodigoProcesso" column="CODIGO_PROCESSO">
+      <generator class="identity" />
+    </id>
+    <!--<many-to-one name="TbUsuario">
+      <column name="CODIGO_USUARIO_RESPONSAVEL" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbDemandaProcesso">
+      <column name="CODIGO_DEMANDA_PROCESSO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbTipoSolicitacao">
+      <column name="CODIGO_TIPO_SOLICITACAO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbStatusProcesso">
+      <column name="CODIGO_STATUS_PROCESSO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbAreaProcesso">
+      <column name="CODIGO_AREA_PROCESSO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbFluxoAtendimento">
+      <column name="CODIGO_FLUXO_ATENDIMENTO" sql-type="int" not-null="true" />
+    </many-to-one>-->
+    <property name="NumeroProcesso">
+      <column name="NUMERO_PROCESSO" sql-type="int" not-null="true" />
+    </property>
+    <property name="SlaCliente">
+      <column name="SLA_CLIENTE" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Observacao">
+      <column name="OBSERVACAO" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="DataCriacao">
+      <column name="DATA_CRIACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DataExtracao">
+      <column name="DATA_EXTRACAO" sql-type="date" not-null="false" />
+    </property>
+    <property name="DataEncerramento">
+      <column name="DATA_ENCERRAMENTO" sql-type="date" not-null="false" />
+    </property>
+    <property name="AtendimentoOutraArea">
+      <column name="ATENDIMENTO_OUTRA_AREA" sql-type="bit" not-null="true" />
+    </property>
+    <property name="AtendimentoAutomatico">
+      <column name="ATENDIMENTO_AUTOMATICO" sql-type="bit" not-null="false" />
+    </property>
+    <!--<bag name="TbNota">
+      <key column="CODIGO_PROCESSO" />
+      <one-to-many class="TbNota" />
+    </bag>-->
+  </class>
+
+</hibernate-mapping>

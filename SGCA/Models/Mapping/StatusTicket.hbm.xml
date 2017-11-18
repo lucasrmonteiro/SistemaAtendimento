@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="StatusTicket" table="TB_STATUS_TICKET">
+    <id name="Codigo" column="CODIGO_STATUS_TICKET" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="DescricaoStatusTicket" column="DESCRICAO_STATUS_TICKET"/>
+</class>
+</hibernate-mapping>

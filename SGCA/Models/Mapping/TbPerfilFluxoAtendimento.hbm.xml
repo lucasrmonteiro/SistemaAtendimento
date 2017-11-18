@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbPerfilFluxoAtendimento" table="TB_PERFIL_FLUXO_ATENDIMENTO" lazy="true" >
+    <composite-id>
+      <key-property name="CodigoFluxoAtendimento" column="CODIGO_FLUXO_ATENDIMENTO" />
+      <key-property name="CodigoPerfil" column="CODIGO_PERFIL" />
+    </composite-id>
+    <many-to-one name="TbFluxoAtendimento">
+      <column name="CODIGO_FLUXO_ATENDIMENTO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbPerfil">
+      <column name="CODIGO_PERFIL" sql-type="int" not-null="true" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>

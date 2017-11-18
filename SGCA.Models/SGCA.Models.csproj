@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C0BB9D7-B8F4-4A4F-B7BD-C60EF27C7253}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGCA.Models</RootNamespace>
+    <AssemblyName>SGCA.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\IGenericDAO.cs" />
+    <Compile Include="DAO\Impl\GenericDAOImpl.cs" />
+    <Compile Include="Entity\Atendimento.cs" />
+    <Compile Include="Entity\AtendimentoPendencias.cs" />
+    <Compile Include="Entity\ConfigEmail.cs" />
+    <Compile Include="Entity\ConfigSFtp.cs" />
+    <Compile Include="Entity\Area.cs" />
+    <Compile Include="Entity\Grupo.cs" />
+    <Compile Include="Entity\PendenciasMobilidade.cs" />
+    <Compile Include="Entity\StatusNota.cs" />
+    <Compile Include="Entity\StatusTicket.cs" />
+    <Compile Include="Entity\Funcao.cs" />
+    <Compile Include="Entity\Importacao.cs" />
+    <Compile Include="Entity\Mobilidade.cs" />
+    <Compile Include="Entity\Nota.cs" />
+    <Compile Include="Entity\PendenciaNota.cs" />
+    <Compile Include="Entity\Perfil.cs" />
+    <Compile Include="Entity\PK\TelaPerfilPK.cs" />
+    <Compile Include="Entity\Processo.cs" />
+    <Compile Include="Entity\Status.cs" />
+    <Compile Include="Entity\Demanda.cs" />
+    <Compile Include="Entity\TbAcao.cs" />
+    <Compile Include="Entity\TbCategoria.cs" />
+    <Compile Include="Entity\TbDemandaProcesso.cs" />
+    <Compile Include="Entity\TbEtepa.cs" />
+    <Compile Include="Entity\TbGrupo.cs" />
+    <Compile Include="Entity\TbMobilidade.cs" />
+    <Compile Include="Entity\TbNotaHistorico.cs" />
+    <Compile Include="Entity\TbPerfilFluxoAtendimento.cs" />
+    <Compile Include="Entity\TbPontoFocal.cs" />
+    <Compile Include="Entity\TbStatusNota.cs" />
+    <Compile Include="Entity\TbStatusProcesso.cs" />
+    <Compile Include="Entity\TbStatusTicket.cs" />
+    <Compile Include="Entity\TbTicketHistorico.cs" />
+    <Compile Include="Entity\TbTipoSolicitacao.cs" />
+    <Compile Include="Entity\TbUsuarioPerfil.cs" />
+    <Compile Include="Entity\Ticket.cs" />
+    <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Entity\VwPendeciasA104.cs" />
+    <Compile Include="Enums\EnumColunasImportacao.cs" />
+    <Compile Include="Enums\EnumTipoSolicitacao.cs" />
+    <Compile Include="Enums\EnumEmailTipo.cs" />
+    <Compile Include="Enums\EnumDemanda.cs" />
+    <Compile Include="Enums\EnumLayoutLog.cs" />
+    <Compile Include="Enums\EnumPerfil.cs" />
+    <Compile Include="Enums\EnumResultJson.cs" />
+    <Compile Include="Enums\EnumGrupo.cs" />
+    <Compile Include="Enums\EnumStatusImportacao.cs" />
+    <Compile Include="Enums\EnumStatus.cs" />
+    <Compile Include="Filters\FiltroAlterarSenha.cs" />
+    <Compile Include="Filters\FiltroAtendimentoPendencias.cs" />
+    <Compile Include="Filters\FiltroBuscaCredito.cs" />
+    <Compile Include="Filters\FiltroConsultaFeriado.cs" />
+    <Compile Include="Filters\FiltroCreditoPerformance.cs" />
+    <Compile Include="Filters\FiltroEsqueciSenha.cs" />
+    <Compile Include="Filters\FiltroGrupo.cs" />
+    <Compile Include="Filters\FiltroLegado.cs" />
+    <Compile Include="Filters\FiltroLogin.cs" />
+    <Compile Include="Filters\FiltroNota.cs" />
+    <Compile Include="Filters\FiltroPendenciaMobilidade.cs" />
+    <Compile Include="Filters\FiltroProcessamentoBaixa.cs" />
+    <Compile Include="Filters\FiltroProcesso.cs" />
+    <Compile Include="Filters\FiltroRelatorioHistoricoCredito.cs" />
+    <Compile Include="Filters\FiltroRelatorioSolicitacao.cs" />
+    <Compile Include="Filters\FiltroSolicitacaoBaixaCobranca.cs" />
+    <Compile Include="Filters\FiltroSolicitacaoValidacaoBaixaCobranca.cs" />
+    <Compile Include="Filters\FiltroUsuario.cs" />
+    <Compile Include="Helpers\ControllerHelper.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\ImportacaoHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\NumberFormatHelper.cs" />
+    <Compile Include="Manager\Base\Impl\BaseManagerImpl.cs" />
+    <Compile Include="Manager\Exceptions\ImportacaoIniciadaPeloSistemaException.cs" />
+    <Compile Include="Manager\Exceptions\ImportacaoIndexadaPeloSistemaException.cs" />
+    <Compile Include="Manager\Exceptions\LinhaArquivoInvalidoException.cs" />
+    <Compile Include="Manager\Exceptions\NomeclaturaInvalidaException.cs" />
+    <Compile Include="Manager\Exceptions\TimeStampInvalidoException.cs" />
+    <Compile Include="Manager\Exceptions\LayoutArquivoInvalidoException.cs" />
+    <Compile Include="Manager\Exceptions\ManagerException.cs" />
+    <Compile Include="Manager\IApplicationManager.cs" />
+    <Compile Include="Manager\Base\IBaseManager.cs" />
+    <Compile Include="Manager\IAtendimentoPendenciasManager.cs" />
+    <Compile Include="Manager\IImportacaoManager.cs" />
+    <Compile Include="Manager\Impl\ApplicationManagerImpl.cs" />
+    <Compile Include="Manager\Impl\AtendimentoPendenciasManagerImpl.cs" />
+    <Compile Include="Manager\Impl\ImportacaoManagerImpl.cs" />
+    <Compile Include="Manager\Impl\NotaManagerImpl.cs" />
+    <Compile Include="Manager\Impl\PerfilManagerImpl.cs" />
+    <Compile Include="Manager\Impl\ProcessoManagerImpl.cs" />
+    <Compile Include="Manager\Impl\StatusManagerImpl.cs" />
+    <Compile Include="Manager\Impl\UsuarioManagerImpl.cs" />
+    <Compile Include="Manager\INotaManager.cs" />
+    <Compile Include="Manager\IPerfilManager.cs" />
+    <Compile Include="Manager\IProcessoManager.cs" />
+    <Compile Include="Manager\IStatusManager.cs" />
+    <Compile Include="Manager\IUsuarioManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Constantes.cs" />
+    <Compile Include="Util\CpfUtil.cs" />
+    <Compile Include="Util\CsvExport.cs" />
+    <Compile Include="Util\EncryptionUtils.cs" />
+    <Compile Include="Util\FileUtil.cs" />
+    <Compile Include="Util\PasswordUtils.cs" />
+    <Compile Include="Util\UploadFileResult.cs" />
+    <Compile Include="Validators\CpfValidator.cs" />
+    <Compile Include="Validators\LoginValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetUtil\NetUtil.csproj">
+      <Project>{40db1949-3a5e-4fe7-a167-81450aeda007}</Project>
+      <Name>NetUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="Entity\FluxoAtendimento.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

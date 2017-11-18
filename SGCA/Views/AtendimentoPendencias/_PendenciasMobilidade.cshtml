@@ -1,0 +1,159 @@
+﻿
+<input type="button" id="btnEdit" class="btn btn-default" value="Editar" />
+
+<table id="tablePendenciasMobilidade" class="display table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            @*<td class="dataTable-collapse-small text-center"><b>Data da Importação</b></td>*@
+            <td class="dataTable-collapse-small text-center"><b>Número da Nota</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Tipo de Nota</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Início Desejado</b></td>
+            @*<td class="dataTable-collapse-small text-center"><b>Data de Finalização no PDA</b></td>*@
+            <td class="dataTable-collapse-small text-center"><b>Instalação</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Status Sistema</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Status Usuário</b></td>
+            @*<td class="dataTable-collapse-small text-center"><b>Segmento Cliente</b></td>*@
+            @*<td class="dataTable-collapse-small text-center"><b>Texto Code para Codif.</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Código Pendência</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Descr. Pendência</b></td>
+                *@
+            <td class="dataTable-collapse-small text-center"><b>Código Área Direcionada</b></td>
+            <td class="dataTable-collapse-small text-center"><b>Descr. Área Direcionada</b></td>
+            @*
+            <td class="dataTable-collapse-small text-center"><b>Status</b></td>
+                <td class="dataTable-collapse-small text-center"><b>Data de Atendimento</b></td>*@
+            @*<td class="dataTable-collapse-small text-center"><b>Responsável</b></td>*@
+            @*<td class="dataTable-collapse-small text-center"><b>Grupo de Atendimento</b></td>*@
+            <td class="dataTable-collapse-small text-center"><b>Observações</b></td>
+            @*<td class="dataTable-collapse-small text-center"><b>-</b></td>
+                <td class="dataTable-collapse-small text-center"><b>Selecionar Todos</b></td>*@
+        </tr>
+    </thead>
+</table>
+
+<div id="divModal">
+</div>
+
+<script type="text/javascript">
+
+    var table;
+
+    $(document).ready(function () {
+
+        var configuracesDataTable = {
+
+            "language": {
+                "zeroRecords": "Nenhum arquivo encontrado.",
+                "infoEmpty": "Nenhum arquivo encontrado",
+            },
+
+            "oLanguage": {
+                "oPaginate": {
+                    "sZeroRecords": "Nenhum arquivo encontrado",
+                    "sEmptyTable": "Nenhum arquivo encontrado",
+                    "sInfoEmpty": "Nenhum arquivo encontrado",
+                    "sNext": "Próxima",
+                    "sPrevious": "Anterior",
+                    "sInfo": "	Mostrando _START_ a _END_ do total de _TOTAL_"
+                }
+            },
+
+            "scrollX": true,
+            "processing": true, // exibe gif indicador de processamento
+            "serverSide": true, // indica que a tabela será preenchida / paginada em serverSide, por questões de performance
+            "info": true,   //mostra informações de controle da tabela control table information display field
+            "bFilter": false, // desabilita campo filtro da tabela
+            "bLengthChange": false, // desabilita o menu de quantidade de itens exibidos por página
+            "ordering": false, // desabilita ordenação
+
+            "ajax": {
+
+                "url": '@Url.Action("AjaxGetJsonData", "AtendimentoPendencias")',
+                "type": "POST"
+
+            },
+
+            "columnDefs": [
+                    {
+
+                        "aTargets": [0, 2, 3, 4], // Referência a coluna da tabela, FORMATAR CAMPO DATA
+                        "mRender": function (data, type, full) {
+                            if (data) {
+                                var dtStart = new Date(parseInt(data.substr(6)));
+                                var dtStartWrapper = moment(dtStart);
+                                return dtStartWrapper.format('DD/MM/YYYY');
+                            }
+                            else { return ""; }
+                        }
+
+                    }
+            ],
+
+            "columns": [
+
+                //{ "data": "DataImportacao", "orderable": false, "word-wrap": "break-word" },
+                { "data": "NumeroNota", "class": "id", "orderable": false, "word-wrap": "break-word" },
+                { "data": "TipoNota", "orderable": false, "word-wrap": "break-word" },
+                { "data": "InicioAtendimento", "orderable": false, "word-wrap": "break-word" },
+
+                //{ "data": "FimAtendimento", "orderable": false, "word-wrap": "break-word" },
+
+                { "data": "DataInstalacao", "orderable": false, "word-wrap": "break-word" },
+                { "data": "StatusNotaSap", "orderable": false, "word-wrap": "break-word" },
+                { "data": "StatusNotaUsuario", "orderable": false, "word-wrap": "break-word" },
+
+                //{ "data": "SegmentoCliente", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "TextoCodeCodificacao", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "CodPendencia", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "DescPendencia", "orderable": false, "word-wrap": "break-word" },
+
+                { "data": "Area.IdentificacaoArea", "orderable": false, "word-wrap": "break-word" },
+                { "data": "Area.DescricaoArea", "orderable": false, "word-wrap": "break-word" },
+
+                //{ "data": "Status", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "DataAtendimento", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "Responsavel", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "GrupoAtendimento", "orderable": false, "word-wrap": "break-word" },
+
+                { "data": "Mensagem", "orderable": false, "word-wrap": "break-word" }
+                //,
+                //{ "data": "-", "orderable": false, "word-wrap": "break-word" },
+                //{ "data": "SelecionarTodos", "orderable": false, "word-wrap": "break-word" }
+
+            ],
+
+            select: true
+
+        };
+
+        table = $('#tablePendenciasMobilidade').dataTable(configuracesDataTable);
+
+        $("#btnEdit").click(function () {
+
+            //var id = table.row('.selected').data().CodigoNota;
+            var num = $('#tablePendenciasMobilidade tr.selected').children('.id').html();
+
+            //valida se a linha foi selecionada para edição
+            if (num < 1 || num == "" || num == null) {
+
+                alertify.alert('Selecione uma linha para editar');
+
+            }
+            else {
+
+                $.post('@Url.Content("~/AtendimentoPendencias/PegaConteudoModal")',
+                    {
+                        numeroNota: num
+                    },
+                    function (response) {
+                        $("#divModal").html(response);
+                        $('#edit').modal('show');
+                    }
+                );
+
+            }
+        });
+
+    });
+
+</script>

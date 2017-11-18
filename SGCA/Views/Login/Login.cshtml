@@ -1,0 +1,75 @@
+﻿@model SGCA.Models.Filters.FiltroLogin
+@{
+    ViewBag.Title = "SGCA - Login";
+    Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+}
+<div class="panel panel-default panel-externo">
+    <div class="panel-heading">
+        <h4 class="text-center whiteLink">SISTEMA SGCA</h4>
+    </div>
+    <div class="panel-body">
+
+        @*Formulário*@
+        @using (Html.BeginForm("Autentica", "Login", FormMethod.Post))
+        {
+            @*Mensagem de Erro*@
+            <div style="color:red">@Html.ValidationSummary(true, "")</div>
+            <div class="text-center">
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_login)</p>
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_senha)</p>
+            </div>
+
+
+
+
+            @*Campo Login*@
+            <div class="row">
+                <div class="col-md-3 text-right">
+                    @Html.LabelFor(login => login.Dsc_login, ViewMessagesResource.common_label_login)
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(login => login.Dsc_login, new { @class = "form-control input-sm", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            @*Campo Senha Atual*@
+            <div class="row">
+                <div class="col-md-3 text-right">
+                    @Html.LabelFor(login => login.Dsc_senha, ViewMessagesResource.common_label_senha)
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(login => login.Dsc_senha, new { @class = "form-control input-sm", @type = "password", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            <hr />
+            @*<div class="text-center">
+                    @Html.Partial("~/Views/Shared/_Captcha.cshtml")
+                </div>
+
+                <hr />*@
+
+
+            @*Links*@
+            <div class="text-center">
+                @*@Html.ActionLink("Primeiro acesso", "PrimeiroAcesso", "Login")
+                    <br />*@
+                @Html.ActionLink("Alterar minha senha", "AlterarSenha", "Login")
+                <br />
+                @Html.ActionLink("Esqueci minha senha", "EsqueciSenha", "Login")
+            </div>
+
+            <hr />
+
+            @*Botões*@
+            <div class="text-center">
+                <input type="submit" value="Entrar" class="btn btn-default" />
+                @*<input type="button" value="Alterar Senha" onclick="window.location.href='AlterarSenha'" class="btn btn-default" />*@
+            </div>
+        }
+    </div>
+</div>

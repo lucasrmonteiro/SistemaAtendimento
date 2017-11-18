@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Mobilidade" table="TB_MOBILIDADE">
+    <id name="CodigoMobilidade" column="CODIGO_MOBILIDADE" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="StatusOs" column="STATUS_OS"/>
+    <property name="SubCategoriaOs" column="SUBCATEGORIA_OS"/>
+    <property name="ZonaAtendimento" column="ZONA_ATENDIMENTO"/>
+    <property name="RegistroGasista" column="REGISTRO_GASISTA"/>
+    <property name="NomeGasista" column="NOME_GASISTA"/>
+    <property name="Viatura" column="VIATURA"/>
+    <property name="DescricaoMaterial" column="DESCRICAO_MATERIAL"/>
+    <property name="Quantidade" column="QUANTIDADE"/>
+    <property name="Valor" column="VALOR"/>
+
+    <!--Nota-->
+    <many-to-one name="Nota" column="CODIGO_NOTA" class="Nota"/>
+  </class>
+
+</hibernate-mapping>

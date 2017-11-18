@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbDemandaProcesso" table="TB_DEMANDA_PROCESSO" lazy="true" >
+    <id name="CodigoDemandaProcesso" column="CODIGO_DEMANDA_PROCESSO">
+      <generator class="identity" />
+    </id>
+    <property name="Descricao">
+      <column name="DESCRICAO" sql-type="varchar" not-null="true" />
+    </property>
+    <bag name="TbProcesso">
+      <key column="CODIGO_DEMANDA_PROCESSO" />
+      <one-to-many class="Processo" />
+    </bag>
+  </class>
+</hibernate-mapping>

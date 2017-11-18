@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <session-factory>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--Local:  Data Source=localhost\SQLEXPRESS;Initial Catalog=CBPM;Trusted_Connection=Yes-->
+    <!--Server cloud: Data Source=10.43.5.17;Initial Catalog=CBPM;User ID=o2mnet_sql;Password=o2mnet_sql-->
+    <!--Data Source=172.16.0.5;Initial Catalog=CBPM;User ID=cbpm;Password=P@ssw0rd-->
+    <property name="connection.connection_string">
+      Data Source=172.16.0.5;Initial Catalog=CBPM;User ID=cbpm;Password=P@ssw0rd
+    </property>
+    <property name="show_sql">false</property>
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <property name="query.substitutions">true 1, false 0, sim 'S', no 'N'</property>
+
+    <!-- Definy assembly mapping -->
+    <mapping assembly="CBPM" />
+  </session-factory>
+</hibernate-configuration>

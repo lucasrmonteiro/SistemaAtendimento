@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbMobilidade" table="TB_MOBILIDADE" lazy="true" >
+    <id name="CodigoMobilidade" column="CODIGO_MOBILIDADE">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="TbNota">
+      <column name="CODIGO_NOTA" sql-type="int" not-null="true" />
+    </many-to-one>
+    <property name="StatusOs">
+      <column name="STATUS_OS" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="SubcategoriaOs">
+      <column name="SUBCATEGORIA_OS" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="ZonaAtendimento">
+      <column name="ZONA_ATENDIMENTO" sql-type="int" not-null="false" />
+    </property>
+    <property name="RegistroGasista">
+      <column name="REGISTRO_GASISTA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="NomeGasista">
+      <column name="NOME_GASISTA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Viatura">
+      <column name="VIATURA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DescricaoMaterial">
+      <column name="DESCRICAO_MATERIAL" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Quantidade">
+      <column name="QUANTIDADE" sql-type="int" not-null="false" />
+    </property>
+    <property name="Valor">
+      <column name="VALOR" sql-type="decimal" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

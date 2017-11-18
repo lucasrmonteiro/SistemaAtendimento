@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <!--DAOs-->
+  <object name="GenericDAO" type="SGCA.Models.DAO.Impl.GenericDAOImpl"/>
+
+  <!--Managers-->
+  <object name="ImportacaoManager" type="SGCA.Models.Manager.Impl.ImportacaoManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+
+  <!--Application Manager-->
+  <object name="ApplicationManager" type="SGCA.Models.Manager.Impl.ApplicationManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+  
+  <!--Usuario Manager-->
+  <object name="UsuarioManager" type="SGCA.Models.Manager.Impl.UsuarioManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+  
+  <!--Perfil Manager-->
+  <object name="PerfilManager" type="SGCA.Models.Manager.Impl.PerfilManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+
+  <!--Status Manager-->
+  <object name="StatusManager" type="SGCA.Models.Manager.Impl.StatusManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+
+  <!--Processo Manager-->
+  <object name="ProcessoManager" type="SGCA.Models.Manager.Impl.ProcessoManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+  
+  <!--Atendimento pendencias Manager-->
+  <object name="AtendimentoPendenciasManager" type="SGCA.Models.Manager.Impl.AtendimentoPendenciasManagerImpl">
+    <constructor-arg index="0"  ref="GenericDAO"/>
+  </object>
+
+</objects>

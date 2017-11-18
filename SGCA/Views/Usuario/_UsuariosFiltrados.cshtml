@@ -1,0 +1,53 @@
+﻿@model List<SGCA.Models.Entity.Usuario>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>@ViewMessagesResource.common_table_label_nome</th>
+            <th>@ViewMessagesResource.common_table_label_email</th>
+            <th>@ViewMessagesResource.common_table_label_login</th> 
+            <th>@ViewMessagesResource.common_table_label_perfil</th>
+            <th>@ViewMessagesResource.common_table_label_telefone</th>
+            <th>@ViewMessagesResource.common_table_label_status</th>
+            @*<th>@ViewMessagesResource.common_table_label_empresa</th>
+            <th>@ViewMessagesResource.common_table_label_area</th>*@
+            <th>@ViewMessagesResource.common_table_label_acoes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>
+                    <div id="radioDiv">
+                        @Html.RadioButton("teste", usuario.Id_usuario,true)
+                    </div>
+                </td>
+                <td>@usuario.Dsc_nome</td>
+                <td>@usuario.Dsc_email</td>
+                <td>@usuario.Dsc_login</td>
+                <td>@usuario.Perfil.Dsc_descricao</td>
+                <td>@usuario.Dsc_telefone</td>
+                <td>@usuario.Status.Dsc_descricao</td>
+                @*<td>@usuario.Empresa.Dsc_descricao</td>
+                <td>@usuario.Dsc_area</td>*@
+                <td class="text-center">
+                    <button type="button" id="btnVisualizar" onclick="visualisar();" class="btn btn-default btn-sm">@ViewMessagesResource.common_btn_visualizar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript" >
+
+    function visualisar() {
+        var idUsuario = $("#radioDiv input[type='radio']:checked").val();
+        if (idUsuario.length > 0) {
+            var url = '@Url.Action("Manutencao", "Usuario", new { usuario = "id" })';
+            window.location.href = url.replace('id', idUsuario);
+        }
+    }
+
+</script>

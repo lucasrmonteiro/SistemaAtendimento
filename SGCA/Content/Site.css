@@ -1,0 +1,259 @@
+﻿td, th {
+    word-wrap: break-word !important;
+}
+
+.pagination {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0px !important;
+}
+.pagination ul{
+    width: inherit !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+.pagination ul > li{
+    display: inline-block !important;
+    margin:5px !important;
+}
+
+.dataTables_filter{
+    text-align:right;
+}
+
+.headerImage
+{
+    width: 72%;
+    left: 10px;
+    top: -15px;
+    position: relative;
+}
+
+.whiteLink
+{
+    color:white;
+}
+
+.espacamento-small
+{
+    height:6px;
+}
+
+.espacamento-medium
+{
+    height:12px;
+}
+
+.espacamento-large
+{
+    height:18px;
+}
+
+.espacamento-xlarge
+{
+    height:24px;
+}
+
+.panel-externo {
+    width:35%; 
+    margin:0 auto;
+}
+
+.panel-interno-small {
+    width:20%; 
+    margin:0 auto;
+}
+
+.panel-interno-medium {
+    width:40%; 
+    margin:0 auto;
+}
+
+.panel-interno-large {
+    width:60%; 
+    margin:0 auto;
+}
+
+.panel-interno-xlarge {
+    width:80%; 
+    margin:0 auto;
+}
+
+.panel-interno-full {
+    width:100%; 
+    margin:0 auto;
+}
+
+.btn-small {
+    width:20%; 
+    margin:0 auto;
+}
+
+.btn-medium {
+    width:40%; 
+    margin:0 auto;
+}
+
+.btn-large {
+    width:60%; 
+    margin:0 auto;
+}
+
+.btn-xlarge {
+    width:80%; 
+    margin:0 auto;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.dataTable-collapse-small {
+    text-space-collapse:collapse !important;
+    font-size:0.9em !important;
+    vertical-align:middle !important;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.divCentralizada {
+            position:absolute;
+            margin:10%;
+            margin-left:25%;
+            width:50%
+         }
+
+.tableTextRelatorio {        
+    text-space-collapse:collapse;
+    font-size:.8em;
+}
+
+.data {
+    display:inline-block;
+}
+
+.ui-datepicker-trigger
+{
+    width: 3%;
+    height: 3%;
+}
+
+.row > .col-md-4 > .ui-datepicker-trigger {
+    width: 10%;
+    height: 12%;
+}
+
+.row > .col-md-6 > .ui-datepicker-trigger {
+    width: 7%;
+    height: 8%;
+}
+
+.row > .col-md-3 > .ui-datepicker-trigger {
+    width: 15%;
+    height: 15%;
+}
+
+.row > .col-md-2 > .ui-datepicker-trigger {
+    width: 20%;
+    height: 20%;
+}
+
+.row > .col-md-12 > .ui-datepicker-trigger {
+    width: 5%;
+    height: 5%;
+}
+
+.row > .col-md-5 > .ui-datepicker-trigger {
+    width: 7%;
+    height: 7%;
+}
+
+.row > .col-md-6 > .row> .col-md-4> .ui-datepicker-trigger {
+    width: 22%;
+    height: 22%;
+}
+
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+    color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+hr.gradient {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+valorMonetario {
+}

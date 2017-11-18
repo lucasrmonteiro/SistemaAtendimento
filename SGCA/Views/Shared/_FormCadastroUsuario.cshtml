@@ -1,0 +1,124 @@
+﻿@model SGCA.Models.Entity.Usuario
+
+@{
+}
+
+@using (Html.BeginForm("InsereUsuario", (String)ViewBag.ControllerAction, FormMethod.Post, new { @id = "idForm" }))
+{
+    if (ViewBag.Status_Cadastro != null)
+    {
+        if (ViewBag.Status_Cadastro == true)
+        {
+            <div class="alert alert-success" role="alert">@ViewMessagesResource.mensagem_cadastro_incluido_com_sucesso</div>
+
+            ViewBag.Status_Cadastro = null;
+        }
+    }
+
+
+    @*Campo Nome*@
+    <div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(usuario => usuario.Dsc_nome, ViewMessagesResource.common_label_name + "*")
+        </div>
+        <div class="col-md-5">
+            @Html.TextBoxFor(usuario => usuario.Dsc_nome, new { @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_nome)</p>
+        </div>
+    </div>
+
+
+    @*Login*@
+    <div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(usuario => usuario.Dsc_login, ViewMessagesResource.common_label_login + "*")
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(usuario => usuario.Dsc_login, new { @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_login)</p>
+        </div>
+    </div>
+
+
+    @*Campo Email*@
+    <div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(usuario => usuario.Dsc_email, ViewMessagesResource.common_label_email + "*")
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(usuario => usuario.Dsc_email, new { @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_email)</p>
+        </div>
+    </div>
+
+
+    @*Campo Cpf*@
+    @*<div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(usuario => usuario.Dsc_cpf, ViewMessagesResource.common_label_cpf + "*")
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(usuario => usuario.Dsc_cpf, new { id = "cpf", @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_cpf)</p>
+            <p style="color:red">@Html.ValidationMessage("usuario.Cpf")</p>
+        </div>
+    </div>*@
+
+
+    @*Campo Telefone*@
+    <div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(ususario => ususario.Dsc_telefone, ViewMessagesResource.common_label_telephone + "*")
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(usuario => usuario.Dsc_telefone, new { id = "telefone", @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_telefone)</p>
+        </div>
+    </div>
+
+    @*Campo Perfil*@
+    <div class="row">
+        <div class="col-md-2 text-right">
+            @Html.LabelFor(usuario => usuario.Perfil, ViewMessagesResource.common_label_perfil + "*")
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownListFor(usuario => usuario.Perfil.Id_perfil, new SelectList(ViewBag.BagPerfis, "Id_perfil", "Dsc_descricao", 0), ViewMessagesResource.common_label_selecione, new { @id = "perfil", @class = "form-control input-sm" })
+            <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil.Id_perfil)</p>
+        </div>
+    </div>
+
+
+    <br />
+    <br />
+
+    @*Footer*@
+    <div class="panel-footer">
+        @*Incluir*@
+        <button type="submit" class="btn btn-default" style="width:10%">@ViewMessagesResource.common_btn_salvar</button>
+        @*Limpar*@
+        @*<button type="button" id="btnLimpar" class="btn btn-default" style="width:10%">@ViewMessagesResource.common_btn_limpar</button>*@
+        @*Sair*@
+        <button type="button" class="btn btn-default" id="btnSair" style="width:10%">@ViewMessagesResource.common_btn_sair</button>
+    </div>
+}
+
+@* Scripts *@
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#cpf").mask("999.999.999-99");
+        $("#telefone").mask("(99) 99999999?9");
+    });
+
+    alertify.defaults.glossary.cancel = "Não";
+    alertify.defaults.glossary.ok = "Sim";
+
+    @*$('#btnLimpar').click(function () {
+        var url = '@Url.Action(ViewBag.UrlRequestAction, ViewBag.UrlRequestController)';
+        alertify.confirm('Deseja realmente limpar o Formulário?', function () { window.location.href = url });
+    });*@
+
+    $('#btnSair').click(function () {
+        var url = '@Url.Action("Index", "Home")';
+        alertify.confirm('Deseja realmente sair?', function () { window.location.href = url });
+    });
+</script>

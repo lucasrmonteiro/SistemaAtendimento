@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="common_error_um_campo_necessario_para_consulta_baixa_processamento" xml:space="preserve">
+    <value>Para que a pesquisa seja realizada, é necessário que preencher o campo Data de Envio</value>
+  </data>
+  <data name="confirmacao_limpar_formulario" xml:space="preserve">
+    <value>Deseja realmente limpar o Formulário? (sim /não)</value>
+  </data>
+  <data name="confirmacao_sair" xml:space="preserve">
+    <value>Deseja realmente sair? (sim /não)</value>
+  </data>
+  <data name="error_cpf_invalido" xml:space="preserve">
+    <value>CPF Inválido</value>
+  </data>
+  <data name="error_email_invalido" xml:space="preserve">
+    <value>Email Inválido</value>
+  </data>
+  <data name="erro_acesso_invalido" xml:space="preserve">
+    <value>Acesso inválido! Tente novamente.</value>
+  </data>
+  <data name="erro_captcha_obrigatorio" xml:space="preserve">
+    <value>Captcha é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_codigo_invalido" xml:space="preserve">
+    <value>O texto digitado não corresponde a imagem!</value>
+  </data>
+  <data name="erro_confirmacao_nova_senha_obrigatoria" xml:space="preserve">
+    <value>Confirmação da nova senha é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_dados_incorretos" xml:space="preserve">
+    <value>Dados estão incorretos.</value>
+  </data>
+  <data name="erro_email_obrigatorio" xml:space="preserve">
+    <value>E-mail é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_login_email_incorretos" xml:space="preserve">
+    <value>Login ou e-mail incorretos.</value>
+  </data>
+  <data name="erro_login_obrigatorio" xml:space="preserve">
+    <value>Login é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_login_obrigatorio1" xml:space="preserve">
+    <value>Login é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_nova_senha_obrigatoria" xml:space="preserve">
+    <value>Nova senha é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_senha_incorreta" xml:space="preserve">
+    <value>Senha Incorreta.</value>
+  </data>
+  <data name="erro_senha_obrigatoria" xml:space="preserve">
+    <value>Senha é de preenchimento obrigatório.</value>
+  </data>
+  <data name="erro_tamanho_confirmacao_nova_senha_min_max" xml:space="preserve">
+    <value>Confirmação da nova senha deve ter entre 6 e 20 caracteres.</value>
+  </data>
+  <data name="erro_tamanho_email" xml:space="preserve">
+    <value>O campo E-mail excedeu o tamanho limite de caracteres!</value>
+  </data>
+  <data name="erro_tamanho_login" xml:space="preserve">
+    <value>O campo Login excedeu o tamanho limite de caracteres!</value>
+  </data>
+  <data name="erro_tamanho_login1" xml:space="preserve">
+    <value>O campo Login excedeu o tamanho limite de caracteres!</value>
+  </data>
+  <data name="erro_tamanho_nova_senha_min_max" xml:space="preserve">
+    <value>A nova senha ter entre 6 e 20 caracteres.</value>
+  </data>
+  <data name="erro_tamanho_senha" xml:space="preserve">
+    <value>O campo Senha excedeu o tamanho limite de caracteres!</value>
+  </data>
+  <data name="erro_tamanho_senha_min_max" xml:space="preserve">
+    <value>Senha deve ter entre 6 e 20 caracteres.</value>
+  </data>
+  <data name="erro_todos_campos_obrigatorios" xml:space="preserve">
+    <value>Todos os campos são obrigatórios.</value>
+  </data>
+  <data name="erro_usuario_bloqueado" xml:space="preserve">
+    <value>Acesso bloqueado.</value>
+  </data>
+  <data name="mensagem_anexo_arquivo_duplicado" xml:space="preserve">
+    <value>Arquivo em duplicidade na lista para envio</value>
+  </data>
+  <data name="mensagem_anexo_enviado_sucesso" xml:space="preserve">
+    <value>Anexo enviado com sucesso!</value>
+  </data>
+  <data name="mensagem_anexo_excluido_sucesso" xml:space="preserve">
+    <value>Anexo excluído com sucesso!</value>
+  </data>
+  <data name="mensagem_anexo_limite_arquivos" xml:space="preserve">
+    <value>Só é permitido o envio de no máximo 5 arquivos anexos por solicitação.</value>
+  </data>
+  <data name="mensagem_anexo_nenhum_anexo_selecionado" xml:space="preserve">
+    <value>Nenhum anexo foi selecionado!</value>
+  </data>
+  <data name="mensagem_anexo_tamanho_arquivo" xml:space="preserve">
+    <value>O tamanho máximo do arquivo deve ser menor ou igual a 10mb</value>
+  </data>
+  <data name="mensagem_anexo_tamanho_arquivos" xml:space="preserve">
+    <value>O tamanho máximo permitido de todos os arquivos anexados é de 15mb</value>
+  </data>
+  <data name="mensagem_campo_descricao" xml:space="preserve">
+    <value>Favor informar os dados principais como dados do cliente CPF, dados do pagamento, dados da dívida para que a solicitação seja melhor atendida</value>
+  </data>
+  <data name="mensagem_dados_pesquisa_invalidos" xml:space="preserve">
+    <value>Para realizar a pesquisa ao menos um dos campos deve ser preenchido</value>
+  </data>
+  <data name="mensagem_erro_campo_obrigatorio" xml:space="preserve">
+    <value>Campo Obrigatório!</value>
+  </data>
+  <data name="mensagem_erro_enviar_anexo" xml:space="preserve">
+    <value>Ocorreu o seguinte erro ao enviar o anexo: </value>
+  </data>
+  <data name="mensagem_erro_excluir_anexo" xml:space="preserve">
+    <value>Ocorreu o seguinte erro ao tentar excluír o anexo:</value>
+  </data>
+  <data name="mensagem_erro_excluir_anexo1" xml:space="preserve">
+    <value>Ocorreu o seguinte erro ao tentar excluír o anexo:</value>
+  </data>
+  <data name="mensagem_erro_generico" xml:space="preserve">
+    <value>A URL requisitada não foi encontrada neste servidor. Se você digitou o endereço (URL) manualmente, por favor verifique novamente a sintaxe do endereço.</value>
+  </data>
+  <data name="mensagem_erro_login_incorreto" xml:space="preserve">
+    <value>Login inválido!</value>
+  </data>
+  <data name="mensagem_pagina_erro" xml:space="preserve">
+    <value>Ocorreu um erro ao tentar processar a ação solicitada, detalhes do erro seguem abaixo:</value>
+  </data>
+  <data name="mensagem_pesquisa_sem_resultado" xml:space="preserve">
+    <value>Nenhuma Solicitação foi encontrada!</value>
+  </data>
+  <data name="mensagem_solicitacao_alterada_sucesso" xml:space="preserve">
+    <value>Solicitação alterada com sucesso!</value>
+  </data>
+  <data name="mensagem_solicitacao_cadastrada_sucesso" xml:space="preserve">
+    <value>Solicitação cadastrada com sucesso!</value>
+  </data>
+  <data name="mensagem_titulo_abertura_solicitacao" xml:space="preserve">
+    <value>[SGCA]: Abertura Solicitação </value>
+  </data>
+  <data name="mensagem_titulo_acesso" xml:space="preserve">
+    <value>[SGCA]: Solicitação de Acesso ao Sistema SGCA</value>
+  </data>
+  <data name="mensagem_titulo_alteracao_solicitacao" xml:space="preserve">
+    <value>[SGCA]:  Aviso de Solicitação Atualizada </value>
+  </data>
+  <data name="mensagem_titulo_senha_acesso" xml:space="preserve">
+    <value>[SGCA]: Senha de Acesso ao sistema</value>
+  </data>
+  <data name="mensagem_valor_baixa_menor_credito" xml:space="preserve">
+    <value>O  Valor da Baixa deve ser menor ou igual ao Valor do Crédito</value>
+  </data>
+  <data name="mensagem_valor_debito_menor_credito" xml:space="preserve">
+    <value>O  Valor do Débito deve ser menor ou igual ao Valor do Crédito</value>
+  </data>
+  <data name="mensagem_erro_layout_arquivo_invalido" xml:space="preserve">
+    <value>Layout do arquivo selecionado esta inválido. Favor verificar</value>
+  </data>
+  <data name="mensagem_erro_timestamp_arquivo_invalido" xml:space="preserve">
+    <value>Efetuar nova carga. Arquivo possui mais de 1 hora de criação.</value>
+  </data>
+  <data name="mensagem_info_importacao_indexada_sistema" xml:space="preserve">
+    <value>O arquivo já foi indexado pelo sistema!</value>
+  </data>
+  <data name="mensagem_info_importacao_iniciada_sistema" xml:space="preserve">
+    <value>A importcao deste arquivo já foi iniciada pelo sistema.</value>
+  </data>
+  <data name="mensagem_erro_nomeclatura_invalida" xml:space="preserve">
+    <value>O sistema não pode carregar a planilha, pois o arquivo está fora da nomenclatura padrão.</value>
+  </data>
+  <data name="mensagem_erro_indexar_arquivo" xml:space="preserve">
+    <value>Ocorreu um problema ao indexar o arquivo: {0}</value>
+  </data>
+  <data name="mensagem_erro_inseperado_leitura_arquivo" xml:space="preserve">
+    <value>Ocorreu uma exceção não esperada na leitura do arquivo: {0}, na linha: {1}</value>
+  </data>
+  <data name="mensagem_erro_linha_arquivo" xml:space="preserve">
+    <value>A linha {0} do arquivo {1} está invalida.</value>
+  </data>
+  <data name="mensagem_erro_coluna_linha" xml:space="preserve">
+    <value>O valor da coluna {0} ({1}) é inválido.</value>
+  </data>
+  <data name="mensagem_erro_ticket_em_atendimento" xml:space="preserve">
+    <value>O ticket [{0}] não pode ser atulizado pois está em atendimento.</value>
+  </data>
+  <data name="mensagem_info_tickect_nao_encontrado" xml:space="preserve">
+    <value>O ticket com número [{0}] não foi encontrado na base de dados.</value>
+  </data>
+</root>

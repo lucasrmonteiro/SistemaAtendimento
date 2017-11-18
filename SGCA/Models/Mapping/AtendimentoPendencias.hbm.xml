@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models" auto-import="true" default-lazy="false">
+  <class name="AtendimentoPendencias" table="ViewMobilidadePendencias"  mutable="false">
+    <id name="CodigoNota" column="CODIGO_NOTA">
+      <generator class="identity" />
+    </id>
+      
+    <property name="NumeroNota">
+      <column name="NUMERO_NOTA" sql-type="bigint" not-null="true" />
+    </property>
+    <property name="TipoNota">
+      <column name="TIPO_NOTA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DataInicioDesejado">
+      <column name="INICIO_ATENDIMENTO" sql-type="datetime" not-null="false" />
+    </property>
+    <!--<property name="FimAtendimento">
+      <column name="FIM_ATENDIMENTO" sql-type="datetime" not-null="false" />
+    </property>-->
+    <property name="Instalacao">
+      <column name="DATA_INSTALACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="StatusSistema">
+      <column name="DESCRICAO_STATUS_NOTA" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="StatusUsuario">
+      <column name="dsc_descricao" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="SegmentoCliente">
+      <column name="SEGMENTO_CLIENTE" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="TextoCodCodif">
+      <column name="TEXTO_CODE_CODIFICACAO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CodPendencia">
+      <column name="CODIGO_PENDENCIA_NOTA" sql-type="int" not-null="true" />
+    </property>
+    <property name="DescPendencia">
+      <column name="DESCRICAO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CodAreaDirecionada">
+      <column name="IDENTIFICACAO_AREA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DescAreaDirecionada">
+      <column name="DESCRICAO_AREA" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="DataAtendimento">
+      <column name="FIM_ATENDIMENTO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Responsavel">
+      <column name="NOME" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="GrupoAtendimento">
+      <column name="DESCRICAO_GRUPO" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="Observacoes">
+      <column name="OBSERVACAO" sql-type="varchar" not-null="false" />
+    </property>
+
+  </class>
+</hibernate-mapping>

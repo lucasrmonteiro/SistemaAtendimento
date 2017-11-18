@@ -1,0 +1,87 @@
+﻿@model SGCA.Models.Filters.FiltroEsqueciSenha
+@{
+    ViewBag.Title = "SGCA - Esqueci Senha";
+    Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+}
+<div class="panel panel-default panel-externo">
+    <div class="panel-heading">
+        <h4 class="text-center whiteLink">SISTEMA SGCA</h4>
+    </div>
+    <div class="panel-body">
+
+        @*Formulário*@
+        @using (Html.BeginForm("EsqueciSenha", "Login", FormMethod.Post))
+        {
+            @*Mensagem de Erro*@
+            <div style="color:red">@Html.ValidationSummary(true, "")</div>
+            <div class="text-center">
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_login)</p>
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_email)</p>
+            </div>
+
+            if (ViewBag.Status != null)
+            {
+                if (ViewBag.Status == true)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewMessagesResource.mensagem_email_nova_senha_sucesso
+
+                        @*Para DEBUG*@
+                        @*@ViewBag.novaSenha*@
+                    </div>
+
+                    ViewBag.Status = null;
+                }
+            }
+
+            @*Campo Login*@
+            <div class="row">
+                <div class="col-md-3 text-right">
+                    @Html.LabelFor(login => login.Dsc_login, ViewMessagesResource.common_label_login)
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(login => login.Dsc_login, new { @class = "form-control input-sm", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            @*Campo Email*@
+            <div class="row">
+                <div class="col-md-3 text-right">
+                    @Html.LabelFor(login => login.Dsc_email, ViewMessagesResource.common_label_email)
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(login => login.Dsc_email, new { @class = "form-control input-sm", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            <hr />
+
+            @*<div style="text-align:center">
+                @Html.Partial("~/Views/Shared/_Captcha.cshtml")
+            </div>
+
+            <hr />*@
+
+            @*Botões*@
+            <div class="text-center">
+                <input type="submit" value="Enviar" class="btn btn-default" />
+                <input id="btnSair" type="button" value="Sair" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    alertify.defaults.glossary.cancel = "Não";
+    alertify.defaults.glossary.ok = "Sim";
+
+    $('#btnSair').click(function () {
+        alertify.confirm('Deseja realmente sair?', function () { window.location.href = 'Login' }, null);
+    });
+
+</script>

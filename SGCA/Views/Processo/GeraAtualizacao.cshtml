@@ -1,0 +1,104 @@
+﻿@using SGCA.Models.Entity
+
+@model SGCA.Models.Filters.FiltroProcesso
+
+@{
+    ViewBag.Title = "SGCA - Gerar Atualização de Sitemas Legados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Painel *@
+<div class="panel panel-default panel-interno-large">
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewMessagesResource.title_atualiza_sistemas_legados</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+
+        @*Botões*@
+        <div class="text-center">
+
+            <br />
+
+            @*Gerar atualização para os sistemas legados*@
+            <div class="row">
+                <button type="button" id="btnGerarAtualizacao" onclick="exportFile();" class="btn btn-default btn-xlarge">@ViewMessagesResource.common_btn_gera_atualizacao_sist_legados</button>
+            </div>
+
+            <div class="espacamento-large">
+            </div>
+
+            @*Importar retorno da atualização para nos sistemas legados*@
+            <div class="row">
+                <button type="button" id="btnImportarRetorno" class="btn btn-default btn-xlarge">@ViewMessagesResource.common_btn_import_retorno_atualizacao_sist_legados</button>
+            </div>
+
+        </div>
+
+        <br />
+
+    </div>
+
+    @*Tabela de Processos*@
+    <div class="panel-footer">
+        @*<span id="partialProcessosFiltrados">@Html.Partial("_ProcessosFiltrados", new List<SGCA.Models.Entity.Processo>())</span>*@
+    </div>
+
+</div>
+
+@* Scripts *@
+@*<script src="~/Scripts/GeraAtualzacao.js"></script>*@
+<script type="text/javascript">
+
+    @*$(document).ready(function () {
+        $('#btnGerarAtualizacao').click(
+            function () {
+                $.blockUI({
+                    message: '<h2><img src="@Url.Content("~/Content/Images/load.gif")" /></br>Carregando, por favor aguarde...</h2>',
+                    css: {
+                        border: 'none', padding: '15px', backgroundColor: '#000', '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px', opacity: .5, color: '#fff'
+                    }
+                });
+                setTimeout($.unblockUI, 99000);
+            });
+    });*@
+
+    jQuery(document).ready(function () {
+
+    });
+
+    $('#btnImportarRetorno').click(function () {
+        $.post('@Url.Content("~/Processo/ImportarLegado")'
+            )
+    });
+
+    function exportFile() {
+
+        $.ajax({
+            url: '../Processo/GeraCSV',
+            type: 'GET',
+            dataType: 'json'
+        })
+        .then(function (result) {
+            $.unblockUI();
+
+            if (result.status == 0) {
+                alertify.alert('Erro :' + result.msg)
+            }
+
+            if (result.status == 1) {
+                if (result.msg == "{OK}") {
+                    alertify.alert('Dados Alterados com Sucesso.');
+                } else {
+                    alertify.alert('Não Existem Dados a Serem Exportados');
+                }
+            }
+
+        })
+
+    }
+
+</script>

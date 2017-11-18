@@ -1,0 +1,30 @@
+﻿@{
+      ViewBag.Title = "Erro ao acessar recurso";
+      Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+}
+
+        @* Painel de resultados da busca *@
+        <div class="panel panel-default" style="width:80%">
+
+        @* Titulo do Painel *@
+        <div class="panel-heading">
+        <h4 style="color:blue;font-weight:bold" class="panel-title">@ViewMessagesResource.title_tela_erro</h4>
+        </div>
+
+                @*Corpo / Formulario*@
+                <div class="panel-body">
+
+                    <b>
+                    @ViewMessagesResource.mensagem_pagina_erro
+                    </b>
+
+                    <br />
+                    <br />
+
+                    <br />
+                       @ViewMessagesResource.mensagem_erro_generico
+                    <br />
+                    
+ 
+                </div>
+        </div>

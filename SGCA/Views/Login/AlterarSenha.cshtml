@@ -1,0 +1,114 @@
+﻿@model SGCA.Models.Filters.FiltroAlterarSenha
+@{
+    ViewBag.Title = "SGCA - Alterar Senha";
+    Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+}
+<div class="panel panel-default panel-externo">
+    <div class="panel-heading">
+        <h4 class="text-center whiteLink">SISTEMA SGCA</h4>
+    </div>
+    <div class="panel-body">
+
+        @*Formulário*@
+        @using (Html.BeginForm("AlterarSenha", "Login", FormMethod.Post, new { @id = "idForm" }))
+        {
+            @*Mensagem de Erro*@
+            <div style="color:red">@Html.ValidationSummary(true, "")</div>
+            <div class="text-center">
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_login)</p>
+                <p style="color:red">@Html.ValidationMessageFor(login => login.Dsc_senha)</p>
+                <p style="color:red">@Html.ValidationMessageFor(login => login.NovaSenha)</p>
+                <p style="color:red">@Html.ValidationMessageFor(login => login.ConfirmaNovaSenha)</p>
+            </div>
+            if (ViewBag.Status != null)
+            {
+                if (ViewBag.Status == true)
+                {
+                    <div class="alert alert-success" role="alert">@ViewMessagesResource.mensagem_senha_alterada_sucesso</div>
+                    ViewBag.Status = null;
+                }
+            }
+
+
+            @*Campo Login*@
+            <div class="row">
+                <div class="col-md-5 text-right">
+                    @Html.LabelFor(login => login.Dsc_login, ViewMessagesResource.common_label_login)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(login => login.Dsc_login, new { @id = "login", @class = "form-control input-sm", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            @*Campo Senha Atual*@
+            <div class="row">
+                <div class="col-md-5 text-right">
+                    @Html.LabelFor(login => login.Dsc_senha, ViewMessagesResource.common_label_senha_atual)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(login => login.Dsc_senha, new { @id = "senhaAtual", @class = "form-control input-sm", @type = "password", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            @*Campo Nova Senha*@
+            <div class="row">
+                <div class="col-md-5 text-right">
+                    @Html.LabelFor(login => login.NovaSenha, ViewMessagesResource.common_label_nova_senha)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(login => login.NovaSenha, new { @id = "novaSenha", @class = "form-control input-sm", @type = "password", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            @*Campo Confirmação de Nova Senha*@
+            <div class="row">
+                <div class="col-md-5 text-right">
+                    @Html.LabelFor(login => login.ConfirmaNovaSenha, ViewMessagesResource.common_label_conf_nova_senha)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(login => login.ConfirmaNovaSenha, new { @id = "confirmaSenha", @class = "form-control input-sm", @type = "password", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="espacamento-small">
+            </div>
+
+            <hr />
+
+            @*<div style="text-align:center">
+                @Html.Partial("~/Views/Shared/_Captcha.cshtml")
+            </div>
+
+            <hr />*@
+
+            @*Botões*@
+            <div class="text-center">
+                <input id="btnAlterar" type="submit" value="Alterar" class="btn btn-default" />
+                @*<input id="btnLimpar" type="button" value="Limpar" class="btn btn-default" />*@
+                <input id="btnSair" type="button" value="Sair"
+                       class="btn btn-default" />
+            </div>
+        }
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    alertify.defaults.glossary.cancel = "Não";
+    alertify.defaults.glossary.ok = "Sim";
+
+    //$('#btnLimpar').click(function () {
+    //    alertify.confirm('Deseja realmente limpar o Formulário?', function () { document.getElementById("idForm").reset(); });
+    //});
+
+    $('#btnSair').click(function () {
+        alertify.confirm('Deseja realmente sair?', function () { window.location.href = 'Login' }, null);
+    });
+
+</script>

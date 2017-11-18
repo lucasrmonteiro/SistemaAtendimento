@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="PendenciaNota" table="TB_PENDENCIA_NOTA">
+    <id name="CodigoPendenciaNota" column="CODIGO_PENDENCIA_NOTA" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="SegmentoCliente" column="SEGMENTO_CLIENTE"/>
+    <property name="inicioDesejado" column="INICIO_DESEJADO"/>
+    <property name="CentrabRespon" column="CENTRAB_RESPON"/>
+    <property name="NumeroApartamento" column="NUMERO_APARTAMENTO"/>
+    <property name="Descricao" column="DESCRICAO"/>
+    <property name="CodigoPendencia" column="CODIGO_PENDECIA"/>
+    <property name="TextoCodeCodificacao" column="TEXTO_CODE_CODIFICACAO"/>
+    <property name="DataCriacaoA104" column="DATA_CRIACAO_A104"/>
+    <property name="MensagemErro" column="MENSAGEM_ERRO"/>
+    <property name="DataEncerramentoSAP" column="DATA_ENCERRAMENTO_SAP"/>
+
+    <!--Nota-->
+    <many-to-one name="Nota" column="CODIGO_NOTA" class="Nota"/>
+  </class>
+</hibernate-mapping>

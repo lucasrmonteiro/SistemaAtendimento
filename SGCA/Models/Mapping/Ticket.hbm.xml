@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Ticket" table="TB_TICKET">
+    <id name="CodigoTicket" column="CODIGO_TICKET" type="int">
+      <generator class="native"/>
+    </id>
+    <many-to-one name="TbStatusTicket">
+      <column name="CODIGO_STATUS_TICKET" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbDemanda">
+      <column name="CODIGO_DEMANDA" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbFluxoAtendimento">
+      <column name="CODIGO_FLUXO_ATENDIMENTO" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="TbTipoSolicitacao">
+      <column name="CODIGO_TIPO_SOLICITACAO" sql-type="int" not-null="false" />
+    </many-to-one>
+    <property name="NumeroTicket">
+      <column name="NUMERO_TICKET" sql-type="bigint" not-null="false" />
+    </property>
+    <property name="SlaCliente">
+      <column name="SLA_CLIENTE" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DataCriacao">
+      <column name="DATA_CRIACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DataExtracao">
+      <column name="DATA_EXTRACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DataEncerramento">
+      <column name="DATA_ENCERRAMENTO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="AtendimentoOutraArea">
+      <column name="ATENDIMENTO_OUTRA_AREA" sql-type="bit" not-null="true" />
+    </property>
+    <property name="AtendimentoAutomatico">
+      <column name="ATENDIMENTO_AUTOMATICO" sql-type="bit" not-null="false" />
+    </property>
+    <property name="Atividade">
+      <column name="ATIVIDADE" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Mensagens">
+      <column name="MENSAGENS" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DataSalvo">
+      <column name="DATA_SALVO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="EnvioLegado">
+      <column name="ENVIO_LEGADO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="RetornoLegado">
+      <column name="RETORNO_LEGADO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="ContadorProcesso">
+      <column name="CONTADOR_PROCESSO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="ProcessoEncerrado">
+      <column name="PROCESSO_ENCERRADO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="MensagemRetorno">
+      <column name="MENSAGEM_RETORNO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="StatusRetorno">
+      <column name="STATUS_RETORNO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="JustificativaPriorizacao">
+      <column name="JUSTIFICATIVA_PRIORIZACAO" sql-type="varchar" not-null="false" />
+    </property>
+
+    <!-- Nota -->
+    <bag name="Notas" lazy="true" cascade="all">
+      <key column="CODIGO_TICKET"/>
+      <one-to-many class="Nota" not-found="ignore"/>
+    </bag>
+  
+  </class>
+</hibernate-mapping>

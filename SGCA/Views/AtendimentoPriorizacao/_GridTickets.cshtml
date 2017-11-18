@@ -1,0 +1,73 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "_GridTickets";
+}
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse2">Lista de Processos  <img src="~/Content/Images/arrow.png" /> </a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>*</th>
+                        <th>Número</th>
+                        <th>Fluxo</th>
+                        <th>Responsável</th>
+                        <th>Data de Criação</th>
+                        <th>Demanda</th>
+                        <th>Tipo da Solicitação</th>
+                        <th>Status</th>
+                        <th>Farol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model.Tickets != null)
+                        {
+                            int x = 1;
+                            foreach (var item in Model.Tickets)
+                            {
+                                <tr style="cursor:pointer" class="result" onclick="location.href='@Url.Action("ConsultaProcesso", "AtendimentoPriorizacao", new { @id = item.CodigoTicket })'">
+                                    <th scope="row">@x</th>
+                                    <td>@item.CodigoTicket</td>
+                                    <td>@item.TbFluxoAtendimento.DescricaoFluxoAtendimento</td>
+                                    <td>@item.Notas.First().TbUsuario.Dsc_nome</td>
+                                    <td>@item.DataCriacao</td>
+                                    <td>@item.TbDemanda.DescricaoDemanda</td>
+                                    <td>@item.TbTipoSolicitacao.Descricao</td>
+                                    <td>@item.TbStatusTicket.Descricao</td>
+                                    @if (item.Farol == "Vermelho")
+                                    {
+                                        <td><img src="~/Content/Images/red.png" /></td>
+                                    }
+                                    else if (item.Farol == "Amarelo")
+                                    {
+                                        <td><img src="~/Content/Images/yellow.png" /></td>
+                                    }
+                                    else if (item.Farol == "Verde")
+                                    {
+                                        <td><img src="~/Content/Images/green.png" /></td>
+                                    }
+
+                                </tr>
+                                x++;
+                            }
+                        }
+
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+    </div>
+    <div class="panel-footer"></div>
+</div>

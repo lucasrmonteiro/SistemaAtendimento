@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Usuario" table="TB_USUARIO">
+    <id name="Id_usuario" column="CODIGO_USUARIO" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="Dsc_nome" column="NOME"/>
+    <property name="Dsc_cpf"  column="CPF"/>
+    <property name="Dsc_email" column="EMAIL"/>
+    <property name="Dsc_telefone" column="TELEFONE"/>
+    <property name="Dsc_login" column="LOGIN"/>
+    <property name="Dsc_senha" column="SENHA"/>
+    <property name="Num_tentativas" column="NUM_TENTATIVAS"/>
+    <property name="primeiro_acesso" column="PRIMEIRO_ACESSO"/>
+    <property name="FlAtivo">
+      <column name="FL_ATIVO" sql-type="bit" not-null="false" />
+    </property>
+
+    <!-- Mapping Status -->
+    <many-to-one name="Status" column="COD_STATUS" class="Status"/>
+
+    <!-- Mapping Perfil -->
+    <many-to-one name="Perfil" column="COD_PERFIL" class="Perfil"/>
+
+    <!--Grupo-->
+    <bag name="Grupos" table="TB_USUARIO_GRUPO">
+      <key column="CODIGO_USUARIO"/>
+      <many-to-many class="Grupo" column="CODIGO_GRUPO"/>
+    </bag>
+  </class>
+</hibernate-mapping>

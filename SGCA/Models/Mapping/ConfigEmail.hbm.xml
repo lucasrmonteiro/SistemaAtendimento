@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="ConfigEmail" table="TB_CONFIG_EMAIL">
+    <id name="Id_config" column="CODIGO_CONFIG" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="Dsc_email_remetente" column="EMAIL_REMETENTE"/>
+    <property name="Dsc_nome_remetente" column="NOME_REMETENTE"/>
+    <property name="Dsc_servidor_email" column="SERVIDOR_EMAIL"/>
+    <property name="Dsc_usuario_email" column="USUARIO_EMAIL"/>
+    <property name="Dsc_senha_email" column="SENHA_EMAIL"/>
+    <property name="Num_porta_email" column="PORTA_EMAIL"/>
+    <property name="Char_ssl" column="CHAR_SSL"/>
+
+    
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,190 @@
+﻿@using SGCA.Models.Entity
+@model List<AtendimentoPendencias>
+@using SGCA.Models.Util
+@{
+    SGCA.Models.DTO.SessaoDoUsuario sdu = (SGCA.Models.DTO.SessaoDoUsuario)@Session[Constantes.SESSAO_DO_USUARIO];
+    var mensagemErro = ViewBag.MensagemErro ?? String.Empty;
+    var mensagemSucesso = ViewBag.MensagemSucesso ?? String.Empty;
+}
+
+@{
+    var grid = new WebGrid(Model.First().Pendencias104);
+}
+@using (@Html.BeginForm("BuscaPendenciasA104", "AtendimentoPendencias"))
+{
+<table width="97%" border="0">
+    <tr>
+        <td align="right">
+            Busca Nota Fiscal: @Html.TextBox("SearchKey", "")
+        </td>
+        <td align="left">
+            &nbsp;&nbsp;&nbsp;<input type="submit" value="busca" />
+        </td>
+    </tr>
+</table>
+
+
+    foreach (var item5 in sdu.Perfil.ToList())
+    {
+        if (item5.TbPerfil.Dsc_descricao == "Administrador" || item5.TbPerfil.Dsc_descricao == "Supervisor")
+        {
+            <div id="gridContent2" style=" padding:20px; " class="table-overflow">
+                @grid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        mode: WebGridPagerModes.All,
+
+        columns:
+        grid.Columns(
+        grid.Column("CODIGO_NOTA", format: @<text>  <span class="display-mode">@item.CodigoNota </span> <label id="cod_nota_104" class="edit-mode">@item.CodigoNota</label> </text>, style: "col1Width" ),
+        grid.Column("Data da Importação ", format: @<text>  <span class="display-mode">@item.DataImportacao </span> <label id="cod_nota" class="edit-mode">@item.DataImportacao</label> </text>, style: "col1Width" ),
+        grid.Column("Segmento Cliente ", "Segmento Cliente ", format: @<text>  <span class="display-mode"> <label id="lblFirstName">@item.SegmentoCliente</label> </span> </text>, style: "col2Width"),
+        grid.Column("Número da Nota ", "Número da Nota ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.NumeroNota</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Tipo de Nota ", "Tipo de Nota ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.TipoNota</label> </span> </text>, style: "col2Width"),
+        grid.Column("Data Início Desejado  ", "Data Início Desejado  ", format: @<text> <span class="display-mode"> <label id="lblstatuaaas">@item.InicioAtendimento</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Instalação ", "Instalação ", format: @<text> <span class="display-mode"> <label id="lblstatuaaas">@item.DataInstalacao</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Status Usuário ", "Status Usuário ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.StatusUsuario</label> </span> </text>, style: "col2Width"),
+        grid.Column("Status Sistema", "Status Sistema", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.StatusSistema</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Texto Code p/ Codif. ", "Texto Code p/ Codif. ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.TextoCodeCod</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Rua ", "Rua ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.Rua</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Número Apartamento ", "Número Apartamento ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.NumeroApartamento</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Local ", "Local ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.Local</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Descrição ", "Descrição ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.Descricao</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Código Pendência ", "Código Pendência ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.CodigoPendecia</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Descrição da Pendência ", "Descrição da Pendência ", format:
+        @<span>
+            <span class="display-mode"> <label id="lblGrupo">@item.DescricaoPendencia</label> </span>
+        </span>),
+        grid.Column("Código Área Direcionada", "Código Área Direcionada", format: @<text> <span class="display-mode"> <label id="lblobs">@item.CodigoArea</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Descrição Área Direcionada ", "Descrição Área Direcionada ", format: @<text> <span class="display-mode"> <label id="lblobs">@item.DescricaoArea</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Data de Criação p/ A104 ", "Data de Criação p/ A104 ", format: @<text> <span class="display-mode"> <label id="lblobs">@item.DataCriacaoA104</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Mensagem de Erro ", "Mensagem de Erro ", format: @<text> <span class="display-mode"> <label id="lblobs">@item.MensagemErro</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Código Área Direcionada  ", "Código Área Direcionada  ", format: @<text> <span class="display-mode"> <label id="lblcodArea">@item.CentrabRespon</label> </span>  <input type="text" id="CentrabRespon" value="@item.CentrabRespon" class="edit-mode" /> </text>, style: "col2Width"),
+        grid.Column("Status  ", "Status ", format: @<text> <span class="display-mode"> <label id="lblstatus104">@item.StatusUsuario</label> </span> @{
+            @Html.DropDownList("Vstatus", null, new { @class = "edit-mode", @id = "status_edit_104" });
+        }   </text>, style: "col2Width"),
+        grid.Column("Data de Atendimento", "Data de Atendimento", format: @<text> <span class="display-mode"> <label id="lblobs">@item.DataAtendimentoNota</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Responsável ", "Responsável ", format: @<text> <span class="display-mode"> <label id="lblresp">@item.Responsavel</label> </span>
+        @Html.DropDownList("Vusuarios", null, new { @class = "edit-mode", @id = "resp_edit_104" })
+        </text>, style: "col2Width"),
+        grid.Column("Grupo de Atendimento ", "Grupo de Atendimento ", format: @<text> <span class="display-mode"> <label id="lblgrupo104">@item.DescricaoGrupo</label> </span>
+        @{
+            @Html.DropDownList("Vgrupo", null, new { @class = "edit-mode", @id = "grupo_edit_104" });
+        }
+        </text>, style: "col2Width"),
+        grid.Column("Action", format: @<text>
+                <button type="button" class="edit-user display-mode">Edit</button>
+                <button type="button" class="save-user edit-mode">Save</button>
+                <button type="button" class="cancel-user edit-mode">Cancel</button>
+        </text>, style: "col3Width", canSort: false)
+            ))
+
+                    <input type="submit" name="command" id="consultar" value="Exportar Excel" class="btn btn-default" />
+
+            </div>
+                break;
+        }
+        else if (item5.TbPerfil.Dsc_descricao == "Analista Pendência")
+        {
+            <div id="gridContent2" style=" padding:20px; " class="table-overflow">
+                @grid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        mode: WebGridPagerModes.All,
+
+        columns:
+        grid.Columns(
+        grid.Column("CODIGO_NOTA", format: @<text>  <span class="display-mode">@item.CodigoNota </span> <label id="cod_nota_104" class="edit-mode">@item.CodigoNota</label> </text>, style: "col1Width" ),
+        grid.Column("Número da Nota ", "Número da Nota ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.NumeroNota</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Tipo de Nota ", "Tipo de Nota ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.TipoNota</label> </span> </text>, style: "col2Width"),
+        grid.Column("Data Início Desejado  ", "Data Início Desejado  ", format: @<text> <span class="display-mode"> <label id="lblstatuaaas">@item.InicioAtendimento</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Código Pendência ", "Código Pendência ", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.CodigoPendecia</label> </span>  </text>, style: "col2Width"),
+        grid.Column("Descrição da Pendência ", "Descrição da Pendência ", format:
+        @<span>
+            <span class="display-mode"> <label id="lblGrupo">@item.DescricaoPendencia</label> </span>
+        </span>),
+        grid.Column("Mensagem de Erro ", "Mensagem de Erro ", format: @<text> <span class="display-mode"> <label id="lblobs">@item.MensagemErro</label> </span>   </text>, style: "col2Width"),
+        grid.Column("Código Área Direcionada  ", "Código Área Direcionada  ", format: @<text> <span class="display-mode"> <label id="lblcodArea">@item.CentrabRespon</label> </span>  <input type="text" id="CentrabRespon" value="@item.CentrabRespon" class="edit-mode" /> </text>, style: "col2Width"),
+        grid.Column("Status  ", "Status ", format: @<text> <span class="display-mode"> <label id="lblstatus104">@item.StatusUsuario</label> </span> @{
+            @Html.DropDownList("Vstatus", null, new { @class = "edit-mode", @id = "status_edit_104" });
+        }   </text>, style: "col2Width"),
+        grid.Column("Action", format: @<text>
+                    <button class="edit-user display-mode">Edit</button>
+                    <button class="save-user edit-mode">Save</button>
+                    <button class="cancel-user edit-mode">Cancel</button>
+        </text>, style: "col3Width", canSort: false)
+             ))
+                @using (Html.BeginForm("ExportData", "AtendimentoPendencias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="submit" id="consultar1" value="Exportar Excel" class="btn btn-default" />
+                }
+            </div>
+            break;
+        }
+    }
+    }            
+               @* Botões *@
+                @*<div class="panel-footer">*@
+
+                @*Salvar*@
+                @*<button type="button" id="btnSalvar" class="btn btn-default">@ViewMessagesResource.common_btn_salvar</button>*@
+                @*Exportar*@
+                @*<button type="button" id="btnExportar" class="btn btn-default">@ViewMessagesResource.common_btn_exportar_excel</button>*@
+                @*Cancelar*@
+                @*<button type="button" id="btnCancelar" class="btn btn-default">@ViewMessagesResource.common_btn_cancelar</button>*@
+
+                @*</div>*@
+
+                @* Scripts *@
+                <script type="text/javascript">
+
+
+                    $('#gridContent2 .save-user').on('click', function () {
+                        var tr = $(this).parents('tr:first');
+                        var cod_nota = tr.find("#cod_nota_104").html();
+                        var status_edit = tr.find("#status_edit_104").val();
+                        var grupo_edit = tr.find("#grupo_edit_104").val();
+                        var resp_edit_104 = tr.find("#resp_edit_104").val();
+                        var CentrabRespon = tr.find("#CentrabRespon").val();
+                        var status = tr.find("#status_edit_104 option:selected").text();
+                        var grupo = tr.find("#grupo_edit_104 option:selected").text();
+                        var usu = tr.find("#resp_edit_104 option:selected").text();
+                        //tr.find("#status_edit").val(status_edit);
+                        tr.find("#lblstatus104").text(status);
+                        tr.find("#lblgrupo104").text(grupo);
+                        tr.find("#lblcodArea").text(CentrabRespon);
+                        tr.find("#lblresp").text(usu);
+                        tr.find('.edit-mode, .display-mode').toggle();
+                        var UserModel =
+                        {
+                            "cod_nota": cod_nota,
+                            "status_edit": status_edit,
+                            "grupo_edit": grupo_edit,
+                            "resp_edit_104": resp_edit_104,
+                            "CentrabRespon": CentrabRespon
+                        };
+                        $.ajax({
+                            url: '@Url.Action("AlterarGridAcao104", "AtendimentoPendencias")',
+                            data: JSON.stringify(UserModel),
+                            type: 'POST',
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                alertify.success('Nota Salva com Sucesso');
+                            }
+                        });
+
+                    });
+                    $("#consultar1").click(function () {
+                        var form = $("form");
+                        form.attr("action", "@Url.Action("ExportData2", "AtendimentoPendencias")");
+                        form.submit();
+                    });
+                </script>

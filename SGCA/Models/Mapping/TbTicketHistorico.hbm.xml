@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbTicketHistorico" table="TB_TICKET_HISTORICO" lazy="true" >
+    <id name="IdTicketHistorico" column="ID_TICKET_HISTORICO">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="TbTicket">
+      <column name="CODIGO_TICKET" sql-type="int" not-null="false" />
+    </many-to-one>
+    <many-to-one name="TbStatusTicket">
+      <column name="CODIGO_STATUS_TICKET" sql-type="int" not-null="false" />
+    </many-to-one>
+    <property name="DataInicio">
+      <column name="DATA_INICIO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DataFim">
+      <column name="DATA_FIM" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Anotacoes">
+      <column name="ANOTACOES" sql-type="varchar" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

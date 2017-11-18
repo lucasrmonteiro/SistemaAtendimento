@@ -1,0 +1,840 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "AtendimentoPriorizacao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SGCA.Models.Util
+@{
+    SGCA.Models.DTO.SessaoDoUsuario sdu = (SGCA.Models.DTO.SessaoDoUsuario)@Session[Constantes.SESSAO_DO_USUARIO];
+    var mensagemErro = ViewBag.MensagemErro ?? String.Empty;
+    var mensagemSucesso = ViewBag.MensagemSucesso ?? String.Empty;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    @Html.HiddenFor(hi => hi.Id_Atendimento);
+      <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Atendimento</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                <div class="col-md-4">Número: @Html.TextBoxFor(model => model.Id_Atendimento, new { id = "Id_Atendimento", @class = "form-control input-sm" })</div>
+                                <div class="col-md-4">SLA Cliente: @Html.DisplayFor(model => model.SLA_Cliente, new { id = "sla" })</div>
+                                <div class="col-md-4">Aging: @Html.DisplayFor(model => model.Aging, new { id = "agin" })</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                            </div>
+
+
+                            @foreach (var item in sdu.Perfil.ToList())
+                            {
+                                if (item.TbPerfil.Dsc_descricao == "Administrador" || item.TbPerfil.Dsc_descricao == "Supervisor")
+                                {
+                                    <div class="row">
+                                        <div class="col-md-4">Responsável:@Html.DropDownListFor(model => model.id_responsavel, new SelectList(ViewBag.Vusuario, "Id_usuario", "Dsc_nome"), ViewMessagesResource.common_label_selecione, new { @id = "Id_resp", @class = "form-control" })</div>
+                                        <div class="col-md-4">Atividade: @Html.DisplayFor(model => model.Atividade, new { id = "atividade" }) </div>
+                                        @if (Model.Bandeira == "Verde")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/green.png" /></div>
+                                        }
+                                        else if (Model.Bandeira == "Amarelo")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/yellow.png" /></div>
+
+                                        }
+                                        else if (Model.Bandeira == "Vermelho")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/red.png" /></div>
+                                        }
+                                    </div>
+                                    break;
+                                }
+                                else
+                                {
+                                    <div class="row">
+                                        <div class="col-md-4">Responsável:@Html.TextBoxFor(model => model.Responsavel, new { id = "Id_resp", @class = "form-control input-sm" })</div>
+                                        <div class="col-md-4">Atividade: @Html.DisplayFor(model => model.Atividade, new { id = "atividade" }) </div>
+                                        @if (Model.Bandeira == "Verde")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/green.png" /></div>
+                                        }
+                                        else if (Model.Bandeira == "Amarelo")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/yellow.png" /></div>
+
+                                        }
+                                        else if (Model.Bandeira == "Vermelho")
+                                        {
+                                            <div class="col-md-4">Bandeira: <img src="~/Content/Images/red.png" /></div>
+                                        }
+                                    </div>
+                                    break;
+                                }
+                            }
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">Fluxo: @Html.DisplayFor(model => model.Fluxo.DescricaoFluxoAtendimento, new { id = "fluxo" })</div>
+                                <div class="col-md-4">Última Importação : @Html.DisplayFor(model => model.Dt_importacao, new { id = "dt_importacao" })</div>
+                                <div class="col-md-4">Última Exportação : @Html.DisplayFor(model => model.Dt_exportacao, new { id = "dt_exportacao" })</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">Data Criação: @Html.TextBoxFor(model => model.Dt_criacao, new { id = "dt_criacao", @class = "form-control input-sm" })</div>
+                                <div class="col-md-4">Data Extração: @Html.TextBoxFor(model => model.Dt_extracao, new { id = "dt_extracao", @class = "form-control input-sm" })</div>
+                                <div class="col-md-4">Data Encerramento: @Html.TextBoxFor(model => model.Dt_encerramento, new { id = "Dt_encerramento", @class = "form-control input-sm" })</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Demanda:
+                                    @Html.DropDownListFor(model => model.Demanda.Codigo, new SelectList(ViewBag.Vdemanda, "Codigo", "DescricaoDemanda"), ViewMessagesResource.common_label_selecione, new { @id = "id_demanda", @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    Tipo da Solicitação:
+                                    @Html.DropDownListFor(model => model.Solicitacao.CodigoTipoSolicitacao, new SelectList(ViewBag.Vsolictacao, "CodigoTipoSolicitacao", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_solicitacao", @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    Status:
+                                    @Html.DropDownListFor(model => model.Status.CodigoStatusTicket, new SelectList(ViewBag.Vstatus, "CodigoStatusTicket", "Descricao"), ViewMessagesResource.common_label_selecione, new { @id = "id_status", @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-4">&nbsp;&nbsp;<input type="button" id="salvar" value=" Salvar" class="btn btn-default" />&nbsp;&nbsp;
+                                    <input class="btn btn-default" id="encerrar" type="button" value="Encerrar Ticket" />&nbsp;&nbsp;
+                                    <input class="btn btn-default" id="cancelar" type="button" value="Cancelar" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse4">Notas<img src="~/Content/Images/arrow.png" /></a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>*</th>
+                                <th>Nota</th>
+                                <th>Nota de Regularização</th>
+                                <th>Pendência de NS</th>
+                                <th>Tp. Nota</th>
+                                <th>Status da Nota SAP</th>
+                                <th>Status Nota Usuário</th>
+                                <th>Status Atual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int j = 1;
+                                for (int count = 0; count < Model.Notas.Count; count++)
+                                {
+                                    <tr>
+                                        <th scope="row">@j</th>
+                                        <td>@Model.Notas[count].CodigoNota</td>
+                                        <td>@Model.Notas[count].NotaRegularizacao</td>
+                                        <td>@Model.Notas[count].PendenciaNs</td>
+                                        <td>@Model.Notas[count].TipoNota</td>
+                                        <td>@Model.Notas[count].StatusNotaSap</td>
+                                        <td>@Model.Notas[count].StatusNotaUsuario</td>
+                                        <td>@Html.DropDownListFor(model => model.Notas[count].TbStatusNota.CodigoStatusNota, new SelectList(ViewBag.Vstatus_nota, "CodigoStatusNota", "Descricao" ,Model.Notas[count].TbStatusNota.CodigoStatusNota), ViewMessagesResource.common_label_selecione, new { @id = "id_status_acao", @class = "form-control nota_aterar" })</td>
+                                    </tr>
+                                    j++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse5">Ações<img src="~/Content/Images/arrow.png" /></a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        @{
+                            if (Model.Demanda.DescricaoDemanda == "CAP")
+                            {
+                                <ul class="nav nav-tabs" role="tablist">
+                                    @*<li role="presentation" class="active">
+                                        <a href="#pendenciasMobilidade" aria-controls="home" role="tab" data-toggle="tab">Ações CAP</a>
+                                    </li>*@
+                                    <li role="presentation">
+                                        <a href="#A102" aria-controls="profile" role="tab" data-toggle="tab">Ações CAP</a>
+                                    </li>
+                                </ul>
+                                                <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="pendenciasMobilidade">
+
+                                    @*Partial Pendências Mobilidade*@
+                                    <div class="control-group">
+                                        <span id="partialFormPendenciasMobilidade">@Html.Partial("_AcaoCAP")</span>
+                                    </div>
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="A102">
+
+                                    @*Partial distribuição de pendências*@
+                                    <div class="control-group">
+                                        <span id="partialFormA104">@Html.Partial("_AcaoSap")</span>
+                                    </div>
+
+                                </div>
+                                <br />
+                                <input type="button" id="executar_acao" value=" Executar Ação" class="btn btn-default" />
+
+                            </div>
+                            }
+                            else
+                            {
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#pendenciasMobilidade" aria-controls="home" role="tab" data-toggle="tab">Ações SAP</a>
+                                    </li>
+                                    @*<li role="presentation">
+                                        <a href="#A102" aria-controls="profile" role="tab" data-toggle="tab">Ações SAP</a>
+                                    </li>*@
+                                </ul>
+
+                                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane" id="pendenciasMobilidade">
+
+                                        @*Partial Pendências Mobilidade*@
+                                        <div class="control-group">
+                                            <span id="partialFormPendenciasMobilidade">@Html.Partial("_AcaoCAP")</span>
+                                        </div>
+
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane active" id="A102">
+
+                                        @*Partial distribuição de pendências*@
+                                        <div class="control-group">
+                                            <span id="partialFormA104">@Html.Partial("_AcaoSap")</span>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <input type="button" id="executar_acao" value=" Executar Ação" class="btn btn-default" />
+
+                                </div>
+                            }
+}
+
+
+
+
+
+                    </div>
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">Lista de Processos<img src="~/Content/Images/arrow.png" /></a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>*</th>
+                                <th>Número</th>
+                                <th>Fluxo</th>
+                                <th>Responsável</th>
+                                <th>Data de Criação</th>
+                                <th>Demanda</th>
+                                <th>Tipo da Solicitação</th>
+                                <th>Status</th>
+                                <th>Farol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int x = 1;
+                                foreach (var item in Model.Tickets)
+                                {
+                                    <tr style="cursor:pointer" onclick="location.href='@Url.Action("ConsultaProcesso", "AtendimentoPriorizacao", new { @id = item.CodigoTicket })'">
+                                        <th scope="row">@x</th>
+                                        <td>@item.CodigoTicket</td>
+                                        <td>@item.TbFluxoAtendimento.DescricaoFluxoAtendimento</td>
+                                        <td>@item.SlaCliente</td>
+                                        <td>@item.DataCriacao</td>
+                                        <td>@item.TbDemanda.DescricaoDemanda</td>
+                                        <td>@item.TbTipoSolicitacao.CodigoTipoSolicitacao</td>
+                                        <td>@item.TbStatusTicket.Descricao</td>
+                                        @if (item.Farol == "Vermelho")
+                                        {
+                                            <td><img src="~/Content/Images/red.png" /></td>
+                                        }
+                                        else if (item.Farol == "Amarelo")
+                                        {
+                                            <td><img src="~/Content/Images/yellow.png" /></td>
+                                        }
+                                        else if (item.Farol == "Verde")
+                                        {
+                                            <td><img src="~/Content/Images/green.png" /></td>
+                                        }
+                                    </tr>
+                                    x++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse3">Histórico<img src="~/Content/Images/arrow.png" /></a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>*</th>
+                                    <th>Início</th>
+                                    <th>Fim</th>
+                                    <th>Responsável</th>
+                                    <th>Status</th>
+                                    <th>Anotações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @{
+                                        int h = 1;
+                                        foreach (var item in Model.Historico)
+                                        {
+                                        <tr>
+                                            <th scope="row">@h</th>
+                                            <td>@item.DataInicio</td>
+                                            <td>@item.DataFim</td>
+                                            <td>@item.TbTicket.Notas.First().TbUsuario.Dsc_nome</td>
+                                            <td>@item.TbStatusTicket.Descricao</td>
+                                            <td>@item.Anotacoes</td>
+                                        </tr>
+                                            h++;
+                                        }
+                                    } 
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="container">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse6">Anotações <img src="~/Content/Images/arrow.png" /></a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+
+                            <textarea class="form-control" rows="3" id="anotacoes"></textarea>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse7">Mobilidade <img src="~/Content/Images/arrow.png" /></a>
+                        </h4>
+                    </div>
+                    <div id="collapse7" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+
+                            <div class="container">
+                                <div class="row data-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>*</th>
+                                                <th>Nota</th>
+                                                <th>Status da OS</th>
+                                                <th>SubCategoria OS</th>
+                                                <th>Zona de Atendimento</th>
+                                                <th>Nome do Gasista</th>
+                                                <th>Registro Gasista</th>
+                                                <th>Viatura</th>
+                                                <th>Data Hora Início Atendimento</th>
+                                                <th>Data hora Fim Atendimento</th>
+                                                <th>Status Nota Usuário</th>
+                                                <th>Endereço/Complemento</th>
+                                                <th>Descrição do Material</th>
+                                                <th>Qtde.</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int f = 1;
+                                                foreach (var item in Model.Mobilidade)
+                                                {
+                                                    <tr>
+                                                        <th scope="row">@f</th>
+                                                        <td>@item.TbNota.CodigoNota</td>
+                                                        <td>@item.StatusOs</td>
+                                                        <td>@item.SubcategoriaOs</td>
+                                                        <td>@item.ZonaAtendimento</td>
+                                                        <td>@item.NomeGasista</td>
+                                                        <td>@item.RegistroGasista</td>
+                                                        <td>@item.Viatura</td>
+                                                        <td>@item.TbNota.InicioAtendimento</td>
+                                                        <td>@item.TbNota.FimAtendimento</td>
+                                                        <td>@item.TbNota.StatusNotaUsuario</td>
+                                                        <td>@item.TbNota.Endereco</td>
+                                                        <td>@item.DescricaoMaterial</td>
+                                                        <td>@item.Quantidade</td>
+                                                        <td>@item.Valor</td>
+                                                    </tr>
+                                                    f++;
+                                                }
+                                            }
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <style type="text/css">
+                                .data-table {
+                                    width: 1100px;
+                                    height: 200px;
+                                    overflow-x: scroll;
+                                    overflow-y: scroll;
+                                }
+                            </style>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+</body>
+</html>
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#collapse1').collapse({ 'toggle': false });
+        $('#collapse2').collapse({ 'toggle': false });
+        $('#collapse3').collapse({ 'toggle': false });
+        $('#collapse4').collapse({ 'toggle': false });
+        $('#collapse5').collapse({ 'toggle': false });
+        $('#collapse6').collapse({ 'toggle': false });
+
+
+        $('#collapse1').collapse('show');
+        $('#collapse2').collapse('hide');
+        $('#collapse3').collapse('hide');
+        $('#collapse4').collapse('show');
+        $('#collapse5').collapse('show');
+        $('#collapse6').collapse('hide');
+
+
+        var disabled = @ViewData["disablecontrols"].ToString().ToLower();
+        if (disabled) {
+            $('.input-sm').attr('disabled',disabled);
+        }
+
+        jQuery('#salvar').on('click', function() {
+            salvarTicket();
+        });
+
+        jQuery('#encerrar').on('click', function() {
+            if(validaEncerrarTicket()){
+                encerrarTicket();
+            }
+
+        });
+
+    });
+
+    function validaSalvarSAP(){
+        var retorno = true;
+        var msg = "";
+        if($('#id_categoria').val() == ""){
+            retorno = false;
+            msg += "Selecione uma categoria <br />"
+        }
+
+        if($('#id_notas').val() == ""){
+            retorno = false;
+            msg += "Escreva alguma Nota"
+        }
+
+        if(msg != ""){
+            alertify.alert(msg);
+        }
+
+        return retorno;
+    }
+
+    function salvarAcaoSAP(){
+
+        var status_notas = "";
+
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            status_notas += jQuery(this).val() + "|";
+        });
+
+        $.get('@Url.Action("salvaAlteracoesSAP", "AtendimentoPriorizacao")',
+                       {
+                           id_ticket : jQuery('#Id_Atendimento').val(),
+                           id_status: jQuery('#id_status_acao').val(),
+                           id_categoria: jQuery('#id_categoria').val(),
+                           notas: jQuery('#id_notas').val(),
+                           status_notas: status_notas
+                       },
+                      function (response) {
+                          alertify.alert('Ticket Salvo com Sucesso');
+                      }
+                  );
+    }
+
+    function salvarAcaoCAP(){
+        var file = $('#fileToUpload')[0].files[0];
+        var id_etapa = 0;
+        if(jQuery('#id_fluxo').val() != ""){
+            id_etapa = jQuery('#id_fluxo').val();
+        }
+
+        var status_notas = "";
+
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            status_notas += jQuery(this).val() + "|";
+        });
+
+        var formdata = new FormData();
+        formdata.append('id_ticket',jQuery('#Id_Atendimento').val());
+        formdata.append('id_nescessidade',jQuery('#id_nescessidade').val());
+        formdata.append('acoes',jQuery('#Acoes').val());
+        formdata.append('observacoes',jQuery('#id_obs').val());
+        formdata.append('id_ponto_focal',jQuery('#id_ponto_focal').val());
+        formdata.append('detalhe_acoes',jQuery('#id_detalhes').val());
+        formdata.append('mensagem',jQuery('#id_messagens').val());
+        formdata.append('id_etapa',id_etapa);
+        formdata.append('file',file);
+        formdata.append('status_notas',status_notas);
+
+        $.ajax({
+            url: '@Url.Action("salvaAlteracoesCAP", "AtendimentoPriorizacao")', // le nom du fichier indiqué dans le formulaire
+            type: 'POST', // la méthode indiquée dans le formulaire (get ou post)
+            cache: false,
+            //data : $(this).serialize(),
+            data: formdata ,
+            processData: false,
+            contentType: false,
+            success: function(data) { // je récupère la réponse du fichier PHP
+                alertify.success('Ticket Salvo com Sucesso');
+            }
+        });
+
+    }
+
+    function salvarTicket(){
+        var status_notas = "";
+
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            status_notas += jQuery(this).val() + "|";
+        });
+
+        var formdata = new FormData();
+        formdata.append('id_ticket',jQuery('#Id_Atendimento').val());
+        formdata.append('status_notas',status_notas);
+        formdata.append('anotacoes',jQuery('#anotacoes').val());
+
+        $.ajax({
+            url: '@Url.Action("SalvarSessaoTicket", "AtendimentoPriorizacao")',
+            type: 'POST',
+            cache: false,
+            data: formdata ,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                alertify.success('Ticket Salvo com Sucesso');
+                window.location.reload();
+            }
+        });
+    }
+
+    function encerrarTicket () {
+
+        var status_notas = "";
+
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            status_notas += jQuery(this).val() + "|";
+        });
+
+        var formdata = new FormData();
+        formdata.append('id_ticket',jQuery('#Id_Atendimento').val());
+        formdata.append('status_notas',status_notas);
+        formdata.append('anotacoes',jQuery('#anotacoes').val());
+
+        $.ajax({
+            url: '@Url.Action("EncerrarTicket", "AtendimentoPriorizacao")',
+            type: 'POST',
+            cache: false,
+            data: formdata ,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                alertify.success('Ticket Salvo com Sucesso');
+                window.location.href = '@Url.Action("ListaProcessos", "AtendimentoPriorizacao")'
+            }
+        });
+    }
+
+    function validaEncerrarTicket () {
+        var count1 = 0;
+        var count2 = 0;
+        var ret = true;
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            if(jQuery(' option:selected',this).text() == "Finalizado"){
+                count2++;
+            }
+            count1++
+        });
+
+        if (count1 != count2) {
+            ret = false;
+            alertify.alert('Ticket não pode ser encerrado pois ainda tem notas que não foram finalizadas');
+        };
+
+        return ret;
+    }
+
+    @{
+        if (Model.Demanda.DescricaoDemanda == "SAP")
+        {
+                  <text>
+    jQuery('#executar_acao').on('click', function() {
+        if(validaSalvarSAP()){
+            salvarAcaoSAP();
+        }
+
+    });
+
+    </text>
+        }
+        else
+        {
+                              <text>
+    jQuery('#executar_acao').on('click', function(e) {
+        salvarAcaoCAP();
+
+    });
+    </text>
+        }
+      }
+
+    function toggleTextbox(opt)
+    {
+        if (opt == 'R')
+            document.getElementById('id_fluxo').disabled = false;
+        else
+            document.getElementById('id_fluxo').disabled = true;
+    }
+
+    function trocarRespNotas(){
+        var status_notas = "";
+
+        jQuery.each(jQuery('.nota_aterar'), function(index, val) {
+
+            status_notas += jQuery(this).val() + "|";
+        });
+
+        var formdata = new FormData();
+        formdata.append('id_ticket',jQuery('#Id_Atendimento').val());
+        formdata.append('id_resp',jQuery('#Id_resp').val());
+
+        $.ajax({
+            url: '@Url.Action("TrocarRespNotas", "AtendimentoPriorizacao")',
+            type: 'POST',
+            cache: false,
+            data: formdata ,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                alertify.success('Notas Alteradas com Sucesso.');
+                window.location.reload();
+            }
+        });
+    }
+
+    jQuery('#cancelar').on('click', function(e) {
+        window.location.href = '@Url.Action("ListaProcessos", "AtendimentoPriorizacao")'
+
+    });
+
+    jQuery('#Id_resp').on('change', function() {
+        
+        alertify.confirm( 'O Ticket e todas suas notas serão migrados para o novo usuário responsável. Deseja prosseguir ?', function (asc) {
+            if (asc) {
+                trocarRespNotas();
+            } else{
+                jQuery('#Id_resp').val(@Model.id_responsavel);
+            }
+        });
+
+    });
+
+</script>
+
+<style rel="stylesheet" type="text/css">
+    fieldset.scheduler-border {
+        border: 1px groove #ccc !important;
+        padding: 0 1.1em 1.1em 1.1em !important;
+        margin: 0 0 1.2em 0 !important;
+        -webkit-box-shadow: 0px 0px 0px 0px #000;
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+        font-size: 1.0em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: inherit; /* Or auto */
+        padding: 0 10px; /* To give a bit of padding on the left and right */
+        border-bottom: none;
+        border-color: #808080;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background-color: #f5f5f5 !important;
+    }
+</style>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbAcao" table="TB_ACAO" lazy="true" >
+        <id name="CodigoAcao" column="CODIGO_ACAO">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="TbPontoFocal">
+      <column name="ID_PONTO_FOCAL" sql-type="bigint" not-null="false" />
+    </many-to-one>
+    <property name="CodigoTicket">
+      <column name="CODIGO_TICKET" sql-type="int" not-null="true" />
+    </property>
+    <property name="CodigoEtapa">
+      <column name="CODIGO_ETAPA" sql-type="int" not-null="false" />
+    </property>
+    <property name="CodigoCategoria">
+      <column name="CODIGO_CATEGORIA" sql-type="int" not-null="false" />
+    </property>
+    <property name="CodigoStatusAcaoSap">
+      <column name="CODIGO_STATUS_ACAO_SAP" sql-type="int" not-null="false" />
+    </property>
+    <property name="Observacao">
+      <column name="OBSERVACAO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Mensagem">
+      <column name="MENSAGEM" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DetalheAcao">
+      <column name="DETALHE_ACAO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="PathUpload">
+      <column name="PATH_UPLOAD" sql-type="varchar" not-null="false" />
+    </property>    
+  </class>
+</hibernate-mapping>

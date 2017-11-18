@@ -1,0 +1,127 @@
+﻿@using SGCA.Models.Entity
+@model List<AtendimentoPendencias>
+
+</style type="text/css">
+    .edit-mode {
+    }
+
+    .edit-user {
+    }
+
+        .edit-user display-mode {
+        }
+
+    .save-user edit-mode {
+    }
+
+    .display-mode {
+    }
+
+    .cancel-user {
+    }
+
+    .webgrid-table {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: 650px;
+        display: table;
+        border-collapse: collapse;
+        border: solid px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header, .webgrid-header a {
+        background-color: #E3E3E3;
+        color: black;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: #F5F5F5;
+        padding: 3px 7px 2px;
+    }
+
+    .col1Width {
+        width: 50px;
+    }
+
+    .col2Width {
+        width: 200px;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $('.edit-mode').hide();
+        $('.edit-user, .cancel-user').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('.save-user').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var FirstName = tr.find("#FirstName").val();
+            var LastName = tr.find("#LastName").val();
+            var UserID = tr.find("#UserID").html();
+            tr.find("#lblFirstName").text(FirstName);
+            tr.find("#lblLastName").text(LastName);
+            tr.find('.edit-mode, .display-mode').toggle();
+            var UserModel =
+            {
+                "ID": UserID,
+                "FirstName": FirstName,
+                "LastName": LastName
+            };
+            $.ajax({
+                url: '/User/UpdateUser/',
+                data: JSON.stringify(UserModel),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    alert(data);
+                }
+            });
+
+        });
+    })
+</script>
+
+<h2>Student</h2>
+@{
+    var grid = new WebGrid(Model);
+}
+
+<div id="gridContent" style=" padding:20px; ">
+    @grid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        mode: WebGridPagerModes.All,
+        columns:
+             grid.Columns(
+             grid.Column("Campo1", format: @<text>  <span class="display-mode">@item </span> <label id="UserID" class="edit-mode">@item.</label> </text>, style: "col1Width" ),
+             grid.Column("Campo2", "Data da Importação ", format: @<text>  <span class="display-mode"> <label id="lblFirstName">@item.FirstName</label> </span> <input type="text" id="FirstName" value="@item.FirstName" class="edit-mode" /></text>, style: "col2Width"),
+             grid.Column("Campo3", "Last Name", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.LastName</label> </span>  <input type="text" id="LastName" value="@item.LastName" class="edit-mode" /> </text>, style: "col2Width"),
+             grid.Column("Campo4", format: @<text>
+        <button class="edit-user display-mode">Edit</button>
+        <button class="save-user edit-mode">Save</button>
+        <button class="cancel-user edit-mode">Cancel</button>
+            </text>, style: "col3Width", canSort: false)
+               ))
+

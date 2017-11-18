@@ -1,0 +1,61 @@
+﻿@using SGCA.Models.Entity
+@model SGCA.Models.Entity.Usuario
+@{
+    ViewBag.Title = "Gerenciar Perfis de Acesso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/ConsultarPerfilAcesso.js"></script>
+@* Painel *@
+<div class="panel panel-default">
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewBag.Title</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+        @*Campo Login*@
+        @Html.LabelFor(usuario => usuario.Dsc_login, "TR Usuário")
+        @Html.TextBoxFor(usuario => usuario.Dsc_login, new { @id = "login", @class = "form-control", @style = "width:40%" })
+        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_login)</p>
+
+        @*Campo Perfil*@
+        @Html.LabelFor(usuario => usuario.Perfil, ViewMessagesResource.common_label_perfil)
+        @Html.DropDownListFor(usuario => usuario.Perfil, new SelectList(ViewBag.BagPerfis, "Id_perfil", "Dsc_descricao", 0), ViewMessagesResource.common_label_selecione, new { @id = "perfil", @class = "form-control", @style = "width:20%;" })
+        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+
+        @*Campo Fluxo*@
+        @Html.LabelFor(usuario => usuario.Perfil, "Fluxo de Atendimento")
+        @Html.DropDownList("Codigo", new SelectList(ViewBag.BagFluxos, "Codigo", "DescricaoFluxoAtendimento"), ViewMessagesResource.common_label_selecione, new { @id = "fluxo", @class = "form-control", @style = "width:20%;" })
+        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+
+        <div id="group-buttons">
+            @*Consultar*@
+            <ul id="list-buttons">
+                <li><button type="button" id="btnPesquisar" onclick="consultaPerilLogin();" class="btn btn-default">@ViewMessagesResource.common_btn_pesquisar</button></li>
+            </ul>
+        </div>
+       
+    </div>
+    <div  id="table-consulta-perfil" class="panel-footer">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>@ViewMessagesResource.common_table_label_nome</th>
+                    <th>@ViewMessagesResource.common_table_label_perfil</th>
+                    <th>Fluxo de Atendimento</th>
+                </tr>
+            </thead>
+            <tbody id="consulta_uusario_perfil">
+            </tbody>
+        </table>
+        <button type="submit" id="alterar_perfil" onclick="goToAlterar();" class="btn btn-default" style="width:10%">@ViewMessagesResource.common_btn_alterar</button>
+    </div>
+</div>
+
+<style>
+    #list-buttons{
+        list-style:none;
+        padding:0px;
+    }
+</style>

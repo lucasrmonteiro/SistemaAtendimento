@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="SGCA.Models" namespace="SGCA.Models.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="VwPendeciasA104" table="vw_pendecias_a104" lazy="true" >
+    <id name="CodigoNota" column="CODIGO_NOTA">
+      <generator class="identity" />
+    </id>
+    <property name="DataImportacao">
+      <column name="DATA_IMPORTACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="SegmentoCliente">
+      <column name="SEGMENTO_CLIENTE" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="NumeroNota">
+      <column name="NUMERO_NOTA" sql-type="bigint" not-null="true" />
+    </property>
+    <property name="TipoNota">
+      <column name="TIPO_NOTA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="InicioAtendimento">
+      <column name="INICIO_ATENDIMENTO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DataInstalacao">
+      <column name="DATA_INSTALACAO" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="StatusUsuario">
+      <column name="STATUS_USUARIO" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="StatusSistema">
+      <column name="STATUS_SISTEMA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="TextoCodeCod">
+      <column name="TEXTO_CODE_COD" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Rua">
+      <column name="RUA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="NumeroApartamento">
+      <column name="NUMERO_APARTAMENTO" sql-type="int" not-null="false" />
+    </property>
+    <property name="Local">
+      <column name="Local" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Descricao">
+      <column name="DESCRICAO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CodigoPendecia">
+      <column name="CODIGO_PENDECIA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="DescricaoPendencia">
+      <column name="DESCRICAO_PENDENCIA" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CodigoArea">
+      <column name="CODIGO_AREA" sql-type="int" not-null="true" />
+    </property>
+    <property name="DescricaoArea">
+      <column name="DESCRICAO_AREA" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="DataCriacaoA104">
+      <column name="DATA_CRIACAO_A104" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="MensagemErro">
+      <column name="MENSAGEM_ERRO" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CentrabRespon">
+      <column name="CENTRAB_RESPON" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="CodigoStatusNota">
+      <column name="CODIGO_STATUS_NOTA" sql-type="int" not-null="true" />
+    </property>
+    <property name="DataAtendimentoNota">
+      <column name="DATA_ATENDIMENTO_NOTA" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Responsavel">
+      <column name="RESPONSAVEL" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="DescricaoGrupo">
+      <column name="DESCRICAO_GRUPO" sql-type="varchar" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+﻿@using SGCA.Models.Entity
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Painel *@
+<div class="panel panel-default">
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewMessagesResource.title_cadastro_de_usuario</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+        @*Formulário de Cadastro*@
+        <span id="partialFormCadastroUsuario">@Html.Partial("_FormCadastroUsuario", new Usuario())</span>
+    </div>
+</div>

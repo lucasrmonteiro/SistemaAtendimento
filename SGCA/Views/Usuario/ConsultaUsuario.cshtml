@@ -1,0 +1,158 @@
+﻿@model SGCA.Models.Filters.FiltroUsuario
+
+@{
+    ViewBag.Title = "SGCA - Consultar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Painel *@
+<div class="panel panel-default panel-interno-full">
+
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewMessagesResource.title_consulta_usuario</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+
+        @*Campo Nome*@
+        <div class="row">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(usuario => usuario.Dsc_nome, ViewMessagesResource.common_label_name + "*")
+            </div>
+            <div class="col-md-5">
+                @Html.TextBoxFor(usuario => usuario.Dsc_nome, new { id = "nome", @class = "form-control input-sm" })
+                <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_nome)</p>
+            </div>
+        </div>
+
+        @*Campo Cpf*@
+        @*<div class="row">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(usuario => usuario.Dsc_cpf, ViewMessagesResource.common_label_cpf + "*")
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(usuario => usuario.Dsc_cpf, new { id = "cpf", @class = "form-control input-sm" })
+                <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_cpf)</p>
+                <p style="color:red">@Html.ValidationMessage("usuario.Cpf")</p>
+            </div>
+        </div>*@
+
+        @*Login*@
+        <div class="row">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(usuario => usuario.Dsc_login, ViewMessagesResource.common_label_login + "*")
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(usuario => usuario.Dsc_login, new { id = "login", @class = "form-control input-sm" })
+                <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_login)</p>
+            </div>
+        </div>
+
+        @*Campo Perfil*@
+        <div class="row">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(usuario => usuario.Perfil, ViewMessagesResource.common_label_perfil + "*")
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(usuario => usuario.Perfil, new SelectList(ViewBag.BagPerfis, "Id_perfil", "Dsc_descricao", 0), ViewMessagesResource.common_label_selecione, new { @id = "perfil", @class = "form-control input-sm" })
+                <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+            </div>
+        </div>
+
+        @*Botão Consultar*@
+        <div class="pull-right">
+            @*Consultar*@
+            <button type="button" id="btnPesquisar" class="btn btn-default">@ViewMessagesResource.common_btn_consultar</button>
+        </div>
+
+    </div>
+
+    @*Tabela de Usuários*@
+    <div class="panel-footer">
+        <span id="partialUsuariosFiltrados">@Html.Partial("_UsuariosFiltrados", new List<SGCA.Models.Entity.Usuario>())</span>
+    </div>
+
+    @*Espaçamento*@
+    <br />
+
+</div>
+
+@* Scripts *@
+<script type="text/javascript">
+
+    jQuery(function ($) {
+        $("#cpf").mask("999.999.999-99");
+        $("#telefone").mask("(99) 99999999?9");
+        $("#partialUsuariosFiltrados").html("");
+    });
+
+    $(document).ready(function () {
+        $('#btnPesquisar').click(
+            function () {
+                $.blockUI({
+                    message: '<h2><img src="@Url.Content("~/Content/Images/load.gif")" /></br>Carregando, por favor aguarde...</h2>',
+                    css: {
+                        border: 'none', padding: '15px', backgroundColor: '#000', '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px', opacity: .5, color: '#fff'
+                    }
+                });
+                setTimeout($.unblockUI, 99000);
+            });
+    });
+
+    $('#btnPesquisar').click(function () {
+        $.post('@Url.Content("~/Usuario/ValidaFiltros")',
+            {
+                dsc_nome: document.getElementById("nome").value,
+                //empresa: document.getElementById("empresa").value,
+                //dsc_cpf: document.getElementById("cpf").value,
+                dsc_login: document.getElementById("login").value,
+                perfil: document.getElementById("perfil").value,
+                //status: document.getElementById("status").value
+            },
+            function (response) {
+                $("#partialUsuariosFiltrados").html("");
+                switch (response) {
+                    case 1:
+                        alertify.alert('@ViewMessagesResource.common_error_um_campo_necessario_para_consulta');
+                        $.unblockUI();
+                        break;
+                    case 2:
+                        alertify.alert('@ViewMessagesResource.common_error_dados_nao_encontrados');
+                        $.unblockUI();
+                        break;
+                    case 3:
+                        alertify.alert('@ViewMessagesResource.common_error_cpf_invalido');
+                        $.unblockUI();
+                        break;
+                    case 4:
+                        alertify.alert('@ViewMessagesResource.common_error_nome_excedeu_valor_limite');
+                        $.unblockUI();
+                        break;
+                    case 5:
+                        alertify.alert('@ViewMessagesResource.common_error_login_excedeu_valor_limite');
+                        $.unblockUI();
+                        break;
+                    default:
+                        $.post('@Url.Content("~/Usuario/FiltraUsuarios")',
+                            {
+                                dsc_nome: document.getElementById("nome").value,
+                                //empresa: document.getElementById("empresa").value,
+                                //dsc_cpf: document.getElementById("cpf").value,
+                                dsc_login: document.getElementById("login").value,
+                                perfil: document.getElementById("perfil").value,
+                                //status: document.getElementById("status").value
+                            },
+                            function (response) {
+                                $("#partialUsuariosFiltrados").html(response);
+                                $.unblockUI();
+                            }
+                        );
+                }
+            }
+        );
+    });
+
+</script>

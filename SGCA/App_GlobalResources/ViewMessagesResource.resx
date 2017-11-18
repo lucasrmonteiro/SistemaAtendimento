@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="common_btn_alterar" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="common_btn_historico" xml:space="preserve">
+    <value>Histórico</value>
+  </data>
+  <data name="common_btn_incluir" xml:space="preserve">
+    <value>Incluir</value>
+  </data>
+  <data name="common_btn_limpar" xml:space="preserve">
+    <value>Limpar</value>
+  </data>
+  <data name="common_btn_pesquisar" xml:space="preserve">
+    <value>Pesquisar</value>
+  </data>
+  <data name="common_btn_sair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="common_btn_salvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="common_label_administracao" xml:space="preserve">
+    <value>Administração</value>
+  </data>
+  <data name="common_label_anexo" xml:space="preserve">
+    <value>Anexo:</value>
+  </data>
+  <data name="common_label_area" xml:space="preserve">
+    <value>Área</value>
+  </data>
+  <data name="common_label_business" xml:space="preserve">
+    <value>Empresa:</value>
+  </data>
+  <data name="common_label_cadastrar_solicitoes" xml:space="preserve">
+    <value>Cadastrar Solicitações</value>
+  </data>
+  <data name="common_label_cadastro_de_usuario" xml:space="preserve">
+    <value>Cadastro de Usuário</value>
+  </data>
+  <data name="common_label_classificacao" xml:space="preserve">
+    <value>Classificação</value>
+  </data>
+  <data name="common_label_consultar_manutencao_solicitacao" xml:space="preserve">
+    <value>Consulta e Manutenção de Solicitação</value>
+  </data>
+  <data name="common_label_cpf" xml:space="preserve">
+    <value>CPF: </value>
+  </data>
+  <data name="common_label_dados" xml:space="preserve">
+    <value>Dados: </value>
+  </data>
+  <data name="common_label_data_solicitacao" xml:space="preserve">
+    <value>Data da Solicitação</value>
+  </data>
+  <data name="common_label_descricao" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="common_label_email" xml:space="preserve">
+    <value>E-Mail: </value>
+  </data>
+  <data name="common_label_gestao_de_usuario" xml:space="preserve">
+    <value>Consulta e Manutenção de Usuários</value>
+  </data>
+  <data name="common_label_home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="common_label_login" xml:space="preserve">
+    <value>Login: </value>
+  </data>
+  <data name="common_label_name" xml:space="preserve">
+    <value>Nome: </value>
+  </data>
+  <data name="common_label_numero_solicitacao" xml:space="preserve">
+    <value>No da Solicitação</value>
+  </data>
+  <data name="common_label_produto" xml:space="preserve">
+    <value>Produto</value>
+  </data>
+  <data name="common_label_relatorio" xml:space="preserve">
+    <value>Relatório</value>
+  </data>
+  <data name="common_label_relatorio_solicitacao" xml:space="preserve">
+    <value>Relatório de Solicitação</value>
+  </data>
+  <data name="common_label_sair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="common_label_senha" xml:space="preserve">
+    <value>Senha: </value>
+  </data>
+  <data name="common_label_solicitacoes" xml:space="preserve">
+    <value>Solicitações</value>
+  </data>
+  <data name="common_label_status_solicitacao" xml:space="preserve">
+    <value>Status Solicitação</value>
+  </data>
+  <data name="common_label_telephone" xml:space="preserve">
+    <value>Telefone: </value>
+  </data>
+  <data name="common_label_tipo_solicitacao" xml:space="preserve">
+    <value>Tipo Solicitação</value>
+  </data>
+  <data name="common_label_titulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="common_label_Todas" xml:space="preserve">
+    <value>Todas</value>
+  </data>
+  <data name="title_cadastro_solicitacao" xml:space="preserve">
+    <value>Cadastrar Solicitação</value>
+  </data>
+  <data name="title_consultar_solicitacao" xml:space="preserve">
+    <value>Consulta de Solicitações</value>
+  </data>
+  <data name="title_primeiro_acesso" xml:space="preserve">
+    <value>Primeiro Acesso</value>
+  </data>
+  <data name="title_resultado_busca" xml:space="preserve">
+    <value>Resultado da busca</value>
+  </data>
+  <data name="title_manter_solicitacao" xml:space="preserve">
+    <value>Manutenção da Solicitação</value>
+  </data>
+  <data name="common_label_comentario" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="common_label_perfil" xml:space="preserve">
+    <value>Perfil:</value>
+  </data>
+  <data name="common_label_status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="common_label_atendimento" xml:space="preserve">
+    <value>Atendimento</value>
+  </data>
+  <data name="common_label_atendimento_priorizacao" xml:space="preserve">
+    <value>Atendimento Priorização</value>
+  </data>
+  <data name="common_label_atendimento_pendencias" xml:space="preserve">
+    <value>Atendimento Pendências</value>
+  </data>
+  <data name="common_table_label_area" xml:space="preserve">
+    <value>Área</value>
+  </data>
+  <data name="common_table_label_data_solicitacao" xml:space="preserve">
+    <value>Data da Solicitação</value>
+  </data>
+  <data name="common_table_label_empresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="common_table_label_login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="common_table_label_nome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="common_table_label_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="common_table_label_telefone" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="common_table_label_perfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="common_table_label_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="commom_label_descricao_erro" xml:space="preserve">
+    <value>Descrição do erro:</value>
+  </data>
+  <data name="commom_label_detalhes_erro" xml:space="preserve">
+    <value>Detalhes do Erro:</value>
+  </data>
+  <data name="title_tela_erro" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="common_label_editar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="title_resultado_historico" xml:space="preserve">
+    <value>Histórico da Solicitação</value>
+  </data>
+  <data name="common_label_data_alteracao" xml:space="preserve">
+    <value>Data de Alteração</value>
+  </data>
+  <data name="common_label_selecione" xml:space="preserve">
+    <value>-- Selecione --</value>
+  </data>
+  <data name="common_label_conf_nova_senha" xml:space="preserve">
+    <value>Conf. Nova Senha:</value>
+  </data>
+  <data name="common_label_nova_senha" xml:space="preserve">
+    <value>Nova Senha:</value>
+  </data>
+  <data name="common_label_senha_atual" xml:space="preserve">
+    <value>Senha Atual:</value>
+  </data>
+  <data name="title_sistema_SGCA" xml:space="preserve">
+    <value>SISTEMA SGCA</value>
+  </data>
+  <data name="mensagem_email_nova_senha_sucesso" xml:space="preserve">
+    <value>Um e-mail foi enviado para sua conta cadastrada com sua nova senha.</value>
+  </data>
+  <data name="mensagem_senha_alterada_sucesso" xml:space="preserve">
+    <value>Senha Alterada com Sucesso.</value>
+  </data>
+  <data name="common_error_cpf_invalido" xml:space="preserve">
+    <value>Cpf inválido.</value>
+  </data>
+  <data name="common_error_dados_nao_encontrados" xml:space="preserve">
+    <value>Não foram encontrados registros para a pesquisa.</value>
+  </data>
+  <data name="common_error_login_excedeu_valor_limite" xml:space="preserve">
+    <value>Campo "Login" excedeu o valor limite!</value>
+  </data>
+  <data name="common_error_nome_excedeu_valor_limite" xml:space="preserve">
+    <value>Campo "Nome" excedeu o valor limite!</value>
+  </data>
+  <data name="common_error_um_campo_necessario_para_consulta" xml:space="preserve">
+    <value>Pelo menos um campo é necessário para a Consulta.</value>
+  </data>
+  <data name="common_label_data_ultima_alteracao" xml:space="preserve">
+    <value>Data Última Alteração</value>
+  </data>
+  <data name="commom_obrigatorio_classificacao" xml:space="preserve">
+    <value>O Campo Classificação é obrigatório.</value>
+  </data>
+  <data name="common_label_grupos" xml:space="preserve">
+    <value>Grupos:</value>
+  </data>
+  <data name="common_label_produtos" xml:space="preserve">
+    <value>Produtos:</value>
+  </data>
+  <data name="commom_obrigatorio_produto" xml:space="preserve">
+    <value>O Campo Produto é obrigatório.</value>
+  </data>
+  <data name="commom_obrigatorio_status_solicitacao" xml:space="preserve">
+    <value>O Campo Status da Solicitação é obrigatório.</value>
+  </data>
+  <data name="commom_obrigatorio_tipo_solicitacao" xml:space="preserve">
+    <value>O Campo Tipo da Solicitação é obrigatório.</value>
+  </data>
+  <data name="common_label_x" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="title_anexos_salvos" xml:space="preserve">
+    <value>Anexos Salvos</value>
+  </data>
+  <data name="common_btn_enviar_anexo" xml:space="preserve">
+    <value>Enviar Anexo</value>
+  </data>
+  <data name="mensagem_sem_anexo" xml:space="preserve">
+    <value>Nenhum arquivo anexado</value>
+  </data>
+  <data name="commom_obrigatorio_empresa" xml:space="preserve">
+    <value>O Campo Empresa é obrigatório</value>
+  </data>
+  <data name="commom_obrigatorio_perfil" xml:space="preserve">
+    <value>O Campo Perfil é obrigatório</value>
+  </data>
+  <data name="commom_obrigatorio_status" xml:space="preserve">
+    <value>O Campo Status é obrigatório</value>
+  </data>
+  <data name="common_error_cpf_cadastrado" xml:space="preserve">
+    <value>CPF já cadastrado no sistema!</value>
+  </data>
+  <data name="title_cadastro_de_usuario" xml:space="preserve">
+    <value>Cadastro de Usuário</value>
+  </data>
+  <data name="title_consulta_usuario" xml:space="preserve">
+    <value>Consulta Usuário</value>
+  </data>
+  <data name="title_manutencao" xml:space="preserve">
+    <value>Manutenção</value>
+  </data>
+  <data name="mensagem_cadastro_incluido_com_sucesso" xml:space="preserve">
+    <value>Cadastro incluído com sucesso!</value>
+  </data>
+  <data name="mensagem_dados_alterado_sucesso" xml:space="preserve">
+    <value>Os dados foram alterados com sucesso!</value>
+  </data>
+  <data name="commom_obrigatorio_login" xml:space="preserve">
+    <value>O Campo Login é obrigatório</value>
+  </data>
+  <data name="title_relatorio_solicitacao" xml:space="preserve">
+    <value>Relatório de Solicitações</value>
+  </data>
+  <data name="common_label_aging_encerramento" xml:space="preserve">
+    <value>Aging Encerramento</value>
+  </data>
+  <data name="common_label_aging_pendencia" xml:space="preserve">
+    <value>Aging Pendência</value>
+  </data>
+  <data name="common_label_data_encerramento" xml:space="preserve">
+    <value>Data Encerramento</value>
+  </data>
+  <data name="common_label_data_ultimo_status" xml:space="preserve">
+    <value>Data Último Status</value>
+  </data>
+  <data name="common_label_pendente_encerrado" xml:space="preserve">
+    <value>Pendente Encerrado</value>
+  </data>
+  <data name="common_label_solicitante" xml:space="preserve">
+    <value>Solicitante</value>
+  </data>
+  <data name="common_label_ultimo_status" xml:space="preserve">
+    <value>Último Status</value>
+  </data>
+  <data name="common_btn_exportar_excel" xml:space="preserve">
+    <value>Exportar para Excel</value>
+  </data>
+  <data name="common_error_login_existente" xml:space="preserve">
+    <value>Login já existe!</value>
+  </data>
+  <data name="common_error_login_tamanho_limite" xml:space="preserve">
+    <value>O campo Login excedeu o tamanho limite de caracteres!</value>
+  </data>
+  <data name="common_table_label_acoes" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="common_btn_voltar" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="common_label_empresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="title_cadastro_credito" xml:space="preserve">
+    <value>Cadastrar Crédito</value>
+  </data>
+  <data name="common_label_segmento" xml:space="preserve">
+    <value>Segmento</value>
+  </data>
+  <data name="common_label_cliente" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="common_label_data_pagamento" xml:space="preserve">
+    <value>Data de Pagamento</value>
+  </data>
+  <data name="common_label_pendencia" xml:space="preserve">
+    <value>Pendência</value>
+  </data>
+  <data name="common_label_raiz" xml:space="preserve">
+    <value>Raiz</value>
+  </data>
+  <data name="common_label_tipo_banco" xml:space="preserve">
+    <value>Banco</value>
+  </data>
+  <data name="common_label_tipo_numero_documento" xml:space="preserve">
+    <value>Número do documento</value>
+  </data>
+  <data name="common_label_tipo_rejeitado" xml:space="preserve">
+    <value>Tipo de Rejeitado</value>
+  </data>
+  <data name="common_label_valor_atual" xml:space="preserve">
+    <value>Valor Atual</value>
+  </data>
+  <data name="common_label_analista" xml:space="preserve">
+    <value>Analista</value>
+  </data>
+  <data name="common_label_area_responsavel" xml:space="preserve">
+    <value>Área Responsável</value>
+  </data>
+  <data name="common_label_arrecadacao" xml:space="preserve">
+    <value>Arrecadação</value>
+  </data>
+  <data name="common_label_conta_contabil" xml:space="preserve">
+    <value>Conta Contábil</value>
+  </data>
+  <data name="common_label_coordenador" xml:space="preserve">
+    <value>Coordenador</value>
+  </data>
+  <data name="common_label_data_lancamento" xml:space="preserve">
+    <value>Data de Lançamento</value>
+  </data>
+  <data name="common_label_justificativa" xml:space="preserve">
+    <value>Justificativa</value>
+  </data>
+  <data name="commom_obrigatorio_cliente" xml:space="preserve">
+    <value>O Campo Cliente é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_conta_contabil" xml:space="preserve">
+    <value>O Campo Conta Contábil é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_data_lancamento" xml:space="preserve">
+    <value>O Campo Data de Lançamento é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_data_solicitacao" xml:space="preserve">
+    <value>O Campo Data da Solicitação é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_pendencia" xml:space="preserve">
+    <value>O Campo Pendência é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_raiz" xml:space="preserve">
+    <value>O Campo Raiz é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_segmento" xml:space="preserve">
+    <value>O Campo Segmento é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_valor_atual" xml:space="preserve">
+    <value>O Campo Valor Atual é obrigatório!</value>
+  </data>
+  <data name="common_label_download_planilha_modelo" xml:space="preserve">
+    <value>Download da Planilha Modelo</value>
+  </data>
+  <data name="common_label_importar_planilha" xml:space="preserve">
+    <value>Importar Arquivo</value>
+  </data>
+  <data name="commom_erro_planilha_importada_dados_invalidos" xml:space="preserve">
+    <value>Coluna(s) {0} não preenchido(s) e a planilha não pode ser importada</value>
+  </data>
+  <data name="commom_erro_planilha_importada_invalida" xml:space="preserve">
+    <value>A planilha selecionada é diferente da Planilha Modelo, favor realizar o download da Planilha Modelo, disponível nesta tela.</value>
+  </data>
+  <data name="common_label_numero_credito" xml:space="preserve">
+    <value>Sob o número </value>
+  </data>
+  <data name="mensagem_credito_cadastrado_sucesso" xml:space="preserve">
+    <value>Os dados foram incluídos com sucesso!</value>
+  </data>
+  <data name="common_label_anexar_arquivo" xml:space="preserve">
+    <value>Anexar arquivo:</value>
+  </data>
+  <data name="common_label_arquivo_disponivel" xml:space="preserve">
+    <value>Arquivo Disponível:</value>
+  </data>
+  <data name="mensagem_atualizacao_carteira_sucesso" xml:space="preserve">
+    <value>Documento atualizado com sucesso.</value>
+  </data>
+  <data name="title_atualizar_carteira" xml:space="preserve">
+    <value>Atualizar Carteira</value>
+  </data>
+  <data name="title_consultar_carteira" xml:space="preserve">
+    <value>Consultar Arquivo de Carteira</value>
+  </data>
+  <data name="common_menu_relatorio_credito_performance" xml:space="preserve">
+    <value>Crédito - Performance</value>
+  </data>
+  <data name="title_relatorio_credito_performance" xml:space="preserve">
+    <value>Relatório de Crédito - Performance</value>
+  </data>
+  <data name="common_label_data_de_lancamento" xml:space="preserve">
+    <value>Data de Lançamento</value>
+  </data>
+  <data name="common_label_data_de_pagamento" xml:space="preserve">
+    <value>Data de Pagamento</value>
+  </data>
+  <data name="common_label_empresa_consulta" xml:space="preserve">
+    <value>Empresa:</value>
+  </data>
+  <data name="common_label_pendencia_consulta" xml:space="preserve">
+    <value>Pendência:</value>
+  </data>
+  <data name="common_label_raiz_consulta" xml:space="preserve">
+    <value>Raiz:</value>
+  </data>
+  <data name="common_label_segmento_consulta" xml:space="preserve">
+    <value>Segmento:</value>
+  </data>
+  <data name="common_label_data_de_lancamento_from" xml:space="preserve">
+    <value>Data de Lançamento - De:</value>
+  </data>
+  <data name="common_label_data_de_lancamento_until" xml:space="preserve">
+    <value>Data de Lançamento - Até:</value>
+  </data>
+  <data name="common_label_data_de_pagamento_from" xml:space="preserve">
+    <value>Data de Pagamento - De:</value>
+  </data>
+  <data name="common_label_data_de_pagamento_until" xml:space="preserve">
+    <value>Data de Pagamento - Até:</value>
+  </data>
+  <data name="common_label_cobranca" xml:space="preserve">
+    <value>Cobrança</value>
+  </data>
+  <data name="common_label_carteira" xml:space="preserve">
+    <value>Carteira</value>
+  </data>
+  <data name="common_label_solicitacao_baixa_manual" xml:space="preserve">
+    <value>Solicitação de Baixa Manual</value>
+  </data>
+  <data name="common_label_aging_data_de_lancamento" xml:space="preserve">
+    <value>Aging Data de Lançamento</value>
+  </data>
+  <data name="common_label_aging_data_de_pagamento" xml:space="preserve">
+    <value>Aging Data de Pagamento</value>
+  </data>
+  <data name="common_label_banco" xml:space="preserve">
+    <value>Banco</value>
+  </data>
+  <data name="common_label_codigo_de_credito" xml:space="preserve">
+    <value>Código de Crédito</value>
+  </data>
+  <data name="common_label_data_inclusao" xml:space="preserve">
+    <value>Data de Inclusão</value>
+  </data>
+  <data name="common_label_faixa_lancamento" xml:space="preserve">
+    <value>Faixa 2</value>
+  </data>
+  <data name="common_label_faixa_pagamento" xml:space="preserve">
+    <value>Faixa 1</value>
+  </data>
+  <data name="common_label_numero_de_documento" xml:space="preserve">
+    <value>Número de Documento</value>
+  </data>
+  <data name="common_label_status_credito" xml:space="preserve">
+    <value>Status Crédito</value>
+  </data>
+  <data name="common_label_tipo_de_rejeitado" xml:space="preserve">
+    <value>Tipo de Rejeitado</value>
+  </data>
+  <data name="common_label_usuario" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="common_label_consulta_manutencao_de_baixa_manual" xml:space="preserve">
+    <value>Consulta/Manutenção de Baixa Manual</value>
+  </data>
+  <data name="common_label_credito" xml:space="preserve">
+    <value>Crédito</value>
+  </data>
+  <data name="title_consultar_credito" xml:space="preserve">
+    <value>Consultar Crédito</value>
+  </data>
+  <data name="title_consultar_manutencao_credito" xml:space="preserve">
+    <value>Consulta e Manutenção de Crédito</value>
+  </data>
+  <data name="common_label_atis" xml:space="preserve">
+    <value>Atis</value>
+  </data>
+  <data name="common_label_legado" xml:space="preserve">
+    <value>Legado</value>
+  </data>
+  <data name="common_label_processamento_baixa" xml:space="preserve">
+    <value>Processamento de Baixa</value>
+  </data>
+  <data name="common_label_quantidade" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
+  <data name="common_label_t00" xml:space="preserve">
+    <value>T00</value>
+  </data>
+  <data name="common_label_t08" xml:space="preserve">
+    <value>T08</value>
+  </data>
+  <data name="common_label_t13" xml:space="preserve">
+    <value>T13</value>
+  </data>
+  <data name="common_label_tipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="common_label_valor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="mensagem_pesquisa_sem_resultado_credito" xml:space="preserve">
+    <value>Nenhum Crédito foi encontrado</value>
+  </data>
+  <data name="title_label_historico_credito" xml:space="preserve">
+    <value>Histórico de Crédito</value>
+  </data>
+  <data name="common_label_baixar_arquivo" xml:space="preserve">
+    <value>Baixar Arquivo</value>
+  </data>
+  <data name="mensagem_baixa_lote" xml:space="preserve">
+    <value>Caso a baixa seja em lote. Utilizar baixa arquivo via importação</value>
+  </data>
+  <data name="title_consultar_baixa_credito" xml:space="preserve">
+    <value>Consultar Baixa de Crédito</value>
+  </data>
+  <data name="common_label_arrecadao" xml:space="preserve">
+    <value>Arrecadação</value>
+  </data>
+  <data name="title_baixa_credito" xml:space="preserve">
+    <value>Baixa de Crédito</value>
+  </data>
+  <data name="commom_obrigatorio_data_baixa" xml:space="preserve">
+    <value>O campo data da baixa é obrigatório!</value>
+  </data>
+  <data name="commom_obrigatorio_valor_baixa" xml:space="preserve">
+    <value>O campo valor da baixa é obrigatório!</value>
+  </data>
+  <data name="common_btn_baixar" xml:space="preserve">
+    <value>Baixar</value>
+  </data>
+  <data name="common_btn_cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="common_btn_reverter" xml:space="preserve">
+    <value>Reverter</value>
+  </data>
+  <data name="common_label_baixa_manual" xml:space="preserve">
+    <value>Baixa Manual</value>
+  </data>
+  <data name="common_label_codigo_negociacao" xml:space="preserve">
+    <value>Código de Negociação</value>
+  </data>
+  <data name="common_label_data_baixa" xml:space="preserve">
+    <value>Data da Baixa</value>
+  </data>
+  <data name="common_label_observacao" xml:space="preserve">
+    <value>Observação</value>
+  </data>
+  <data name="common_label_valor_baixa" xml:space="preserve">
+    <value>Valor da Baixa</value>
+  </data>
+  <data name="title_baixa_credito_manual" xml:space="preserve">
+    <value>Baixa de Crédito - Manual</value>
+  </data>
+  <data name="commom_obrigatorio_data_baixa_menor_atual" xml:space="preserve">
+    <value>A  Data da baixa não pode ser menor que a data atual</value>
+  </data>
+  <data name="commom_obrigatorio_valor_baixa_maior_atual" xml:space="preserve">
+    <value>O  Valor da Baixa não pode ser maior que o valor Atual</value>
+  </data>
+  <data name="common_label_consulta_processamento_baixa" xml:space="preserve">
+    <value>Consulta Processamento Baixa</value>
+  </data>
+  <data name="common_error_um_campo_necessario_para_consulta_baixa_processamento" xml:space="preserve">
+    <value>Para que a pesquisa seja realizada, é necessário preencher o campo Data de Envio</value>
+  </data>
+  <data name="common_label_data_de_envio" xml:space="preserve">
+    <value>Data de Envio</value>
+  </data>
+  <data name="common_label_arquivo_atis_legado" xml:space="preserve">
+    <value>Arquivo ATIS ou Legado</value>
+  </data>
+  <data name="common_label_codigo_do_envio" xml:space="preserve">
+    <value>Código do Envio</value>
+  </data>
+  <data name="common_label_comprovante" xml:space="preserve">
+    <value>Comprovante de Envio</value>
+  </data>
+  <data name="common_label_data_do_envio" xml:space="preserve">
+    <value>Data do Envio</value>
+  </data>
+  <data name="mensagem_baixa_efetuada_sucesso" xml:space="preserve">
+    <value>Baixa efetuada com Sucesso</value>
+  </data>
+  <data name="common_table_label_dia_semana" xml:space="preserve">
+    <value>Dia da Semana</value>
+  </data>
+  <data name="common_table_label_feriado" xml:space="preserve">
+    <value>Feriado</value>
+  </data>
+  <data name="common_table_label_qtd_dias_feriado" xml:space="preserve">
+    <value>Quantidade de Dias</value>
+  </data>
+  <data name="common_label_cadastro_de_feriado" xml:space="preserve">
+    <value>Cadastro de Feriado</value>
+  </data>
+  <data name="common_label_gestao_de_feriado" xml:space="preserve">
+    <value>Consulta e Manutenção de Feriado</value>
+  </data>
+  <data name="common_btn_consultar" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="common_btn_excluir" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="common_label_data_feriado" xml:space="preserve">
+    <value>Data do Feriado</value>
+  </data>
+  <data name="common_label_dia_semana" xml:space="preserve">
+    <value>Dia da Semana</value>
+  </data>
+  <data name="common_label_feriado" xml:space="preserve">
+    <value>Feriado</value>
+  </data>
+  <data name="common_label_qnt_dia" xml:space="preserve">
+    <value>Quantidade de Dias</value>
+  </data>
+  <data name="mensagem_feriado_excluido_sucesso" xml:space="preserve">
+    <value>Feriado excluido com sucesso!</value>
+  </data>
+  <data name="title_alterar_feriado" xml:space="preserve">
+    <value>Alterar Feriado</value>
+  </data>
+  <data name="title_consulta_feriado" xml:space="preserve">
+    <value>Consulta de Feriado</value>
+  </data>
+  <data name="common_error_feriado_nao_encontrados" xml:space="preserve">
+    <value>Feriado não encontrado!</value>
+  </data>
+  <data name="mensagem_feriado_incluido_com_sucesso" xml:space="preserve">
+    <value>Feriado incluido com sucesso!</value>
+  </data>
+  <data name="title_cadastro_feriado" xml:space="preserve">
+    <value>Cadastro Feriado</value>
+  </data>
+  <data name="title_cadastrar_solicitacao_validacao_baixa_cobranca" xml:space="preserve">
+    <value>Cadastrar Solicitação de Validação de Baixa</value>
+  </data>
+  <data name="common_label_validacao_baixa" xml:space="preserve">
+    <value>Validação de Baixa</value>
+  </data>
+  <data name="btn_baixar_planilhas_modelo" xml:space="preserve">
+    <value>Baixar Planilha(s) Modelo(s)</value>
+  </data>
+  <data name="common_label_tipo_baixa" xml:space="preserve">
+    <value>Tipo da Baixa</value>
+  </data>
+  <data name="common_label_tipo_de_credito" xml:space="preserve">
+    <value>Tipo de Crédito</value>
+  </data>
+  <data name="common_label_valor_da_baixa" xml:space="preserve">
+    <value>Valor da Baixa</value>
+  </data>
+  <data name="common_label_valor_do_credito" xml:space="preserve">
+    <value>Valor do Crédito</value>
+  </data>
+  <data name="mensagem_solicitacao_cadastrada_sucesso" xml:space="preserve">
+    <value>Solicitação cadastrada com sucesso!</value>
+  </data>
+  <data name="commom_erro_planilha_sem_credito" xml:space="preserve">
+    <value>Nenhum crédito encontrado no arquivo</value>
+  </data>
+  <data name="common_label_data_reversao" xml:space="preserve">
+    <value>Data da reversão</value>
+  </data>
+  <data name="common_label_valor_reversao" xml:space="preserve">
+    <value>Valor da reversão</value>
+  </data>
+  <data name="title_reversao" xml:space="preserve">
+    <value>Reversão</value>
+  </data>
+  <data name="commom_erro_valor_nao_pode_ser_revertido" xml:space="preserve">
+    <value>O valor  não pode ser revertido</value>
+  </data>
+  <data name="mensagem_reversao_efetuada_sucesso" xml:space="preserve">
+    <value>Reversão efetuada com sucesso!</value>
+  </data>
+  <data name="common_label_consulta_manutencao_validacao_baixa" xml:space="preserve">
+    <value>Consulta/Manutenção de Validação de Baixa</value>
+  </data>
+  <data name="common_label_codigo_solicitacao_validacao" xml:space="preserve">
+    <value>Código da Solicitação de Validação</value>
+  </data>
+  <data name="title_documento_anexo" xml:space="preserve">
+    <value>Documento Anexo</value>
+  </data>
+  <data name="common_label_codigo_validacao_baixa" xml:space="preserve">
+    <value>Código da Validação da Baixa</value>
+  </data>
+  <data name="common_label_consulta_baixa_manual" xml:space="preserve">
+    <value>Consulta Baixa Manual</value>
+  </data>
+  <data name="common_label_consulta_validacao_baixa_manual" xml:space="preserve">
+    <value>Consulta Validação de Baixa Manual</value>
+  </data>
+  <data name="common_label_codigo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="common_label_valor_credito" xml:space="preserve">
+    <value>Valor Crédito</value>
+  </data>
+  <data name="common_label_acao_saldo" xml:space="preserve">
+    <value>Ação Saldo</value>
+  </data>
+  <data name="common_label_empresa_credito" xml:space="preserve">
+    <value>Empresa Crédito</value>
+  </data>
+  <data name="common_label_empresa_debito" xml:space="preserve">
+    <value>Empresa Débito</value>
+  </data>
+  <data name="common_label_raiz_grupo" xml:space="preserve">
+    <value>Raiz Grupo</value>
+  </data>
+  <data name="common_label_saldo" xml:space="preserve">
+    <value>Saldo</value>
+  </data>
+  <data name="common_label_tipo_de_solicitacao" xml:space="preserve">
+    <value>Tipo de Solicitação</value>
+  </data>
+  <data name="common_label_valor_do_debito" xml:space="preserve">
+    <value>Valor do Débito</value>
+  </data>
+  <data name="common_label_cod_solicitacao" xml:space="preserve">
+    <value>Cód. Solicitação</value>
+  </data>
+  <data name="common_label_documento_anexo" xml:space="preserve">
+    <value>Documento Anexo</value>
+  </data>
+  <data name="common_label_data_de_solicitacao" xml:space="preserve">
+    <value>Data de Solicitação</value>
+  </data>
+  <data name="common_title_dados" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="common_label_anexo_sem_dois_pontos" xml:space="preserve">
+    <value>Anexo</value>
+  </data>
+  <data name="commom_obrigatorio_data_pagamento" xml:space="preserve">
+    <value>O Campo Data Pagamento  é obrigatório!</value>
+  </data>
+  <data name="mensagem_credito_lote_cadastrado_sucesso" xml:space="preserve">
+    <value>Os dados foram importados com sucesso</value>
+  </data>
+  <data name="common_label_codigo_do_credito" xml:space="preserve">
+    <value>Código do Crédito</value>
+  </data>
+  <data name="mensagem_credito_alterado_sucesso" xml:space="preserve">
+    <value>Alteração Realizada com sucesso</value>
+  </data>
+  <data name="common_error_T00_T08_obrigatorios" xml:space="preserve">
+    <value>Campos 'Quantidade' e 'Valor' de T00 e T08 são obrigatórios.</value>
+  </data>
+  <data name="common_error_T00_T13_obrigatorios" xml:space="preserve">
+    <value>Campos 'Quantidade' e 'Valor' de T00 e T13 são obrigatórios.</value>
+  </data>
+  <data name="common_table_label_data_feriado" xml:space="preserve">
+    <value>Data Feriado:</value>
+  </data>
+  <data name="common_label_status_sem_dois_pontos" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="common_title_alterar_solicitacao_validacao_baixa" xml:space="preserve">
+    <value>Alterar Solicitação Validação Baixa</value>
+  </data>
+  <data name="common_title_cadastrar_solicitacao_baixa" xml:space="preserve">
+    <value>Cadastrar Solicitação de Baixa</value>
+  </data>
+  <data name="common_title_manutencao_baixa_manual" xml:space="preserve">
+    <value>Manutenção de Baixa Manual</value>
+  </data>
+  <data name="common_erro_nenhuma_solicitacao_baixa_manual_encontrada" xml:space="preserve">
+    <value>Nenhuma Solicitação de Baixa Manual foi encontrada</value>
+  </data>
+  <data name="common_erro_nenhuma_solicitacao_validacao_baixa_manual_encontrada" xml:space="preserve">
+    <value>Nenhuma Solicitação para Validação foi encontrada</value>
+  </data>
+  <data name="common_erro_nenhum_credito_foi_encontrado" xml:space="preserve">
+    <value>Nenhum Crédito foi encontrado</value>
+  </data>
+  <data name="common_erro_um_campo_deve_ser_preenchido" xml:space="preserve">
+    <value>Para realizar a pesquisa ao menos um dos campos deve ser preenchido</value>
+  </data>
+  <data name="erro_importacao_planilha_dados_invalidos_ou_nao_preenchidos" xml:space="preserve">
+    <value>Coluna(s) {0}  na linha {1} com dado(s) inválido(s) ou não preenchido(s) e a planilha não pode ser importada.</value>
+  </data>
+  <data name="common_erro_nenhum_dado_encontrado_pesquisa_realizada" xml:space="preserve">
+    <value>Nenhum dado foi encontrado para a pesquisa realizada.</value>
+  </data>
+  <data name="common_label_codigo_solicitacao_baixa" xml:space="preserve">
+    <value>Código Solicitação de Baixa</value>
+  </data>
+  <data name="common_label_raiz2" xml:space="preserve">
+    <value>Raiz</value>
+  </data>
+  <data name="common_btn_visualizar" xml:space="preserve">
+    <value>Visualizar</value>
+  </data>
+  <data name="dois_pontos" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="title_tela_importacao" xml:space="preserve">
+    <value>Importar Dados CAP</value>
+  </data>
+  <data name="common_label_importacao_arq_inbox" xml:space="preserve">
+    <value>Importar Arquivos Inbox</value>
+  </data>
+  <data name="mensagem_usuario_excluido_sucesso" xml:space="preserve">
+    <value>Usuário excluido com sucesso!</value>
+  </data>
+  <data name="common_btn_gera_atualizacao_sist_legados" xml:space="preserve">
+    <value>Gerar atualização para os sistemas legados</value>
+  </data>
+  <data name="common_btn_import_retorno_atualizacao_sist_legados" xml:space="preserve">
+    <value>Importar retorno da atualização para nos sistemas legados</value>
+  </data>
+  <data name="common_label_atualizacao_sist_legados" xml:space="preserve">
+    <value>Atualização de Sistemas Legados</value>
+  </data>
+  <data name="title_atualiza_sistemas_legados" xml:space="preserve">
+    <value>Atualizar Sistemas Legados</value>
+  </data>
+  <data name="common_table_label_data_criacao_processo" xml:space="preserve">
+    <value>Data Criação Processo</value>
+  </data>
+  <data name="common_table_label_data_extracao_processo" xml:space="preserve">
+    <value>Data Extração Processo</value>
+  </data>
+  <data name="common_table_label_id_processo" xml:space="preserve">
+    <value>Id Processo</value>
+  </data>
+  <data name="common_table_label_id_status_processo" xml:space="preserve">
+    <value>Id Status Processo</value>
+  </data>
+  <data name="common_table_label_numero_processo" xml:space="preserve">
+    <value>Número Processo</value>
+  </data>
+  <data name="common_btn_gera_atendimento_sist_legados" xml:space="preserve">
+    <value>Gerar atendimento para sistemas legados</value>
+  </data>
+  <data name="common_btn_import_retorno_atendimento_sist_legados" xml:space="preserve">
+    <value>Importar retorno do atendimento nos sistemas legados</value>
+  </data>
+  <data name="common_label_submenu_atendimento_sist_legados" xml:space="preserve">
+    <value>Manutenção de Atendimento</value>
+  </data>
+  <data name="common_label_submenu_atualizacao_sist_legados" xml:space="preserve">
+    <value>Manutenção de Atualização</value>
+  </data>
+  <data name="common_btn_importar" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="mensagem_sucesso_adicionar_executar_importacao" xml:space="preserve">
+    <value>O arquivo foi adicionado com sucesso. Seu processamento está em andamento.</value>
+  </data>
+  <data name="common_label_atendimento_processo" xml:space="preserve">
+    <value>Atendimento de Processo</value>
+  </data>
+  <data name="common_label_consulta_processo" xml:space="preserve">
+    <value>Consulta de Processo</value>
+  </data>
+  <data name="common_label_numero_abreviado" xml:space="preserve">
+    <value>Nº:</value>
+  </data>
+  <data name="mensagem_erro_generico" xml:space="preserve">
+    <value>A URL requisitada não foi encontrada neste servidor. Se você digitou o endereço (URL) manualmente, por favor verifique novamente a sintaxe do endereço.</value>
+  </data>
+  <data name="mensagem_pagina_erro" xml:space="preserve">
+    <value>Ocorreu um erro ao tentar processar a ação solicitada, detalhes do erro seguem abaixo:</value>
+  </data>
+  <data name="common_label_grupo_atendimento" xml:space="preserve">
+    <value>Grupo de Atendimento</value>
+  </data>
+  <data name="mensagem_erro_importar_legado" xml:space="preserve">
+    <value>Nem todos os arquivos na pasta raiz foram processados com sucesso em todas as linhas. Verificar log para identificar as falhas.</value>
+  </data>
+  <data name="mensagem_sucesso_importar_legado" xml:space="preserve">
+    <value>Todos os arquivos foram processados com sucesso.</value>
+  </data>
+</root>

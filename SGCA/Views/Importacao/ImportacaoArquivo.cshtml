@@ -1,0 +1,92 @@
+﻿@using SGCA.Models.Entity
+@model Importacao
+@{
+    ViewBag.Title = @ViewMessagesResource.title_tela_importacao;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <div class="row" style="display:inline-block; width:100%;">
+            <div class="col-md-8" style="display:inline-block; ">
+                <h4 class="panel-title">@ViewMessagesResource.title_tela_importacao</h4>
+            </div>
+            <div class="col-md-4" id="contador" style="display:inline-block; text-align:right;">
+            </div>
+        </div>
+     </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("AdicionarImportacao", "Importacao", FormMethod.Post, new { @id = "idForm", enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-md-1" style="padding-top:6px;">
+                    @Html.Label("Arquivo" + ViewMessagesResource.dois_pontos)
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(importacao => importacao.Arquivo,
+                                    new SelectList(ViewBag.ListaCombo),
+                                    new { @id = "cboArquivo", @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    <button id="btnImportar" class="btn btn-default" type="submit">@ViewMessagesResource.common_btn_importar</button>
+                </div>
+
+            </div>
+        }
+
+        <div id="historico" class="panel panel-default" style="margin-top:25px;">
+            @* Titulo do Painel *@
+            <div class="panel-heading">
+                <h4 class="panel-title">Histórico de Importações</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_AjaxImportacaoList")
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+
+        function atualizaListaCombo() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListaCombo")',
+                data: '{}',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+                        var ddl = $('#cboArquivo');
+                        ddl.empty();
+                        $(data).each(function () {
+                            $(document.createElement('option'))
+                                .attr('value', this)
+                                .text(this)
+                                .appendTo(ddl);
+                        });
+                    }
+                }
+            });
+        };
+
+        // atualiza o contado rem tela e executa atualizacao da tabela qndo currentSeconds chega a -1
+
+        var totalSeconds = '@ViewBag.TempoAtualizacao';
+        var currentSeconds = totalSeconds;
+        var contador = document.getElementById('contador');
+        var myTimer = function () {
+            currentSeconds = currentSeconds - 1;
+            if (currentSeconds == -1) {
+                currentSeconds = totalSeconds;
+
+                atualizaListaCombo();
+                $('#tbHistorico').DataTable().ajax.reload(null, false);
+            }
+            contador.innerHTML = '<h4 class="panel-title">atualização em ' + currentSeconds + '</h4>';
+            setTimeout(myTimer, 1000);
+        }
+        // executa o método a cada secundo
+        setTimeout(myTimer, 1000);
+    </script>

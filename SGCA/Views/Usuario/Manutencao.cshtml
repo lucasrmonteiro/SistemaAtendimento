@@ -1,0 +1,208 @@
+﻿@using SGCA.Models.Entity
+@model SGCA.Models.Entity.Usuario
+
+@{
+    ViewBag.Title = "Manutencao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Painel *@
+<div class="panel panel-default">
+
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewMessagesResource.title_manutencao</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+        @using (Html.BeginForm("AlteraUsuario", "Usuario", FormMethod.Post, new { id = "formAlteraUsuario" }))
+        {
+            if (ViewBag.Status_Alteracao != null)
+            {
+                if (ViewBag.Status_Alteracao == true)
+                {
+                    <div class="alert alert-success" role="alert">@ViewMessagesResource.mensagem_dados_alterado_sucesso</div>
+
+                    ViewBag.Status_Alteracao = null;
+                }
+            }
+
+            if (ViewBag.Status_Exclusao != null)
+            {
+                if (ViewBag.Status_Exclusao == true)
+                {
+                    <div class="alert alert-success" role="alert">@ViewMessagesResource.mensagem_usuario_excluido_sucesso</div>
+                }
+            }
+
+            if (ViewBag.Status_Exclusao == null)
+            {
+
+                @Html.Hidden("hdnAlterarExcluirUsuario")
+
+                @*Campos Hidden*@
+                @Html.HiddenFor(usuario => usuario.Id_usuario)
+                @*@Html.HiddenFor(usuario => usuario.Dsc_senha)*@
+
+                @*Campo Nome*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Dsc_nome, ViewMessagesResource.common_label_name)
+                    </div>
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(usuario => usuario.Dsc_nome, new { @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_nome)</p>
+                    </div>
+                </div>
+
+
+                @*Campo Login*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Dsc_login, ViewMessagesResource.common_label_login)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(usuario => usuario.Dsc_login, new { @id = "login", @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessage("usuario.Login")</p>
+                    </div>
+                </div>
+
+
+                @*Campo Email*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Dsc_email, ViewMessagesResource.common_label_email)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(usuario => usuario.Dsc_email, new { @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_email)</p>
+                    </div>
+                </div>
+
+
+                @*Campo Cpf*@
+                @*<div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Dsc_cpf, ViewMessagesResource.common_label_cpf)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(usuario => usuario.Dsc_cpf, new { id = "cpf", @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_cpf)</p>
+                        <p style="color:red">@Html.ValidationMessage("usuario.Cpf")</p>
+                    </div>
+                </div>*@
+
+
+                @*Campo Telefone*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(ususario => ususario.Dsc_telefone, ViewMessagesResource.common_label_telephone)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(usuario => usuario.Dsc_telefone, new { id = "telefone", @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Dsc_telefone)</p>
+                    </div>
+                </div>
+
+
+
+                @*Campo Perfil*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Perfil, ViewMessagesResource.common_label_perfil)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(usuario => usuario.Perfil.Id_perfil, new SelectList(ViewBag.BagPerfis, "Id_perfil", "Dsc_descricao"), ViewMessagesResource.common_label_selecione, new { @id = "perfil", @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Perfil)</p>
+                        <p style="color:red">@Html.ValidationMessage("usuario.Perfil")</p>
+                    </div>
+                </div>
+
+
+                @*Campo Status*@
+                <div class="row">
+                    <div class="col-md-2 text-right">
+                        @Html.LabelFor(usuario => usuario.Status, ViewMessagesResource.common_label_status)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(usuario => usuario.Status.Id_status, new SelectList(ViewBag.BagStatus, "Id_status", "Dsc_descricao"), ViewMessagesResource.common_label_selecione, new { @id = "status", @class = "form-control input-sm" })
+                        <p style="color:red">@Html.ValidationMessageFor(usuario => usuario.Status)</p>
+                        <p style="color:red">@Html.ValidationMessage("usuario.Status")</p>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                @*Footer*@
+                <div class="panel-footer">
+                    @*Excluir*@
+                    <button type="button" class="btn btn-default" id="btnExcluir" style="width:10%">@ViewMessagesResource.common_btn_excluir</button>
+                    @*Alterar*@
+                    <button type="button" class="btn btn-default" id="btnAlterar" style="width:10%">@ViewMessagesResource.common_btn_alterar</button>
+                    @*Voltar*@
+                    <button type="button" class="btn btn-default" id="btnVoltar" style="width:10%">@ViewMessagesResource.common_btn_voltar</button>
+                </div>
+
+            }
+
+
+            if (ViewBag.Status_Exclusao != null)
+            {
+
+                if (ViewBag.Status_Exclusao == true)
+                {
+
+                    @*Footer*@
+                    <div class="panel-footer">
+                        @*Voltar*@
+                        <button type="button" class="btn btn-default" id="btnSair" style="width:10%">@ViewMessagesResource.common_btn_sair</button>
+                    </div>
+
+                    ViewBag.Status_Exclusao = null;
+                }
+
+            }
+
+        }
+    </div>
+
+</div>
+
+@* Scripts *@
+<script type="text/javascript">
+
+    jQuery(function ($) {
+        $("#cpf").mask("999.999.999-99");
+        $("#telefone").mask("(99) 99999999?9");
+    });
+
+    alertify.defaults.glossary.cancel = "Não";
+    alertify.defaults.glossary.ok = "Sim";
+
+    $('#btnExcluir').click(function () {
+        $("#hdnAlterarExcluirUsuario").val("Excluir");
+        alertify.confirm('Deseja excluir o usuário selecionado?', excluirUsuario);
+    });
+
+    $('#btnAlterar').click(function () {
+        $("#hdnAlterarExcluirUsuario").val("Alterar");
+        $("#formAlteraUsuario").submit();
+    });
+
+    $('#btnVoltar').click(function () {
+        var url = '@Url.Action("ConsultaUsuario", "Usuario")';
+        alertify.confirm('Deseja realmente voltar?', function () { window.location.href = url });
+    });
+
+    $('#btnSair').click(function () {
+        var url = '@Url.Action("Index", "Home")';
+        window.location.href = url;
+    });
+
+    function excluirUsuario() {
+        $("#formAlteraUsuario").submit();
+    }
+
+</script>

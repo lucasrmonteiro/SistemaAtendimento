@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Funcao" table="TB_FUNCAO">
+    <id name="IdFuncao" column="ID_FUNCAO" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys-->
+    <property name="Action" column="ACAO" />
+    <property name="Controller" column="CONTROLE"/>
+    <!-- <bag name="Perfis" table="PERFILFUNCAO" lazy="true" inverse="true">
+		  <key column="idfuncao"/>
+		  <many-to-many class="Perfil" column="idperfil"/>
+	</bag> -->
+
+  </class>
+
+</hibernate-mapping>

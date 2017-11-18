@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="Importacao" table="TB_IMPORTACAO_HISTORICO">
+    <id name="IdImportacao" column="CODIGO_IMPORTACAO_HISTORICO" type="int">
+      <generator class="native"/>
+    </id>
+
+    <!--Propertys -->
+    <property name="Arquivo" column="NOME_ARQUIVO"/>
+    <property name="DataImportacao" column="DATA_IMPORTACAO"/>
+    <property name="QtdRegistroNovo"  column="QUANTIDADE_REGISTRO_NOVO"/>
+    <property name="QtdRegistroAtualizado" column="QUANTIDADE_REGISTRO_ATUALIZADO"/>
+    <property name="QtdRegistroFalha" column="QUANTIDADE_REGISTRO_FALHA"/>
+    <property name="Status" column="STATUS"/>
+    <property name="DataAdicao" column="DATA_ADICAO"/>
+
+    <!-- Mapping Usuario -->
+    <many-to-one name="Analista" column="CODIGO_USUARIO" class="Usuario"/>
+   
+  </class>
+  
+</hibernate-mapping>

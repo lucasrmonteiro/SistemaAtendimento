@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="SGCA.Models.Entity" assembly="SGCA.Models">
+  <class name="TbStatusNota" table="TB_STATUS_NOTA" lazy="true" >
+    <id name="CodigoStatusNota" column="CODIGO_STATUS_NOTA">
+      <generator class="identity" />
+    </id>
+    <property name="Descricao">
+      <column name="DESCRICAO" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="CodigoGrupo">
+      <column name="CODIGO_GRUPO" sql-type="int" not-null="true" />
+    </property>
+    <!--<bag name="TbNota">
+      <key column="CODIGO_STATUS_NOTA" />
+      <one-to-many class="TbNota" />
+    </bag>-->
+  </class>
+</hibernate-mapping>

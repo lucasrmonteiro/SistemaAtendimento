@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <session-factory>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--Local:        Data Source=localhost\SQLEXPRESS;Initial Catalog=SGCA;Trusted_Connection=Yes-->
+    <!--Server cloud: Data Source=10.43.5.17;Initial Catalog=SGCA;User ID=o2mnet_sql;Password=o2mnet_sql-->
+    <!--HOMOLOGACAO:  Data Source=172.16.0.5;Initial Catalog=SGCA;User ID=SGCA;Password=P@ssw0rd-->
+    <!--PRODUCAO:     Data Source=172.16.0.7;Initial Catalog=SGCA;User ID=SGCA;Password=P@ssw0rd-->
+    <property name="connection.connection_string">
+    <!--HOMOLOGACAO: -->
+    Data Source=10.43.5.17;Initial Catalog=SGCA;User ID=o2mnet_sql;Password=o2mnet_sql
+    </property>
+    <property name="show_sql">false</property>
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <property name="query.substitutions">true 1, false 0, sim 'S', no 'N'</property>
+       
+    <!-- Definy assembly mapping -->
+    <mapping assembly="SGCA" />
+
+  </session-factory>
+</hibernate-configuration>

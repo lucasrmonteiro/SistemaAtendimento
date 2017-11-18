@@ -1,0 +1,289 @@
+﻿@using SGCA.Models.Entity
+@model List<AtendimentoPendencias>
+
+@{
+    ViewBag.Title = "AtendimentoPendencias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@* Painel *@
+<div class="panel panel-default">
+    @* Titulo do Painel *@
+    <div class="panel-heading">
+        <h4 class="panel-title">@ViewMessagesResource.common_label_atendimento_processo</h4>
+    </div>
+
+    @*Corpo / Formulario*@
+    <div class="panel-body">
+
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Distribuição de Pendências</legend>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#pendenciasMobilidade" aria-controls="home" role="tab" data-toggle="tab">Pendências Mobilidade</a>
+                </li>
+                <li role="presentation">
+                    <a href="#A104" aria-controls="profile" role="tab" data-toggle="tab">A104</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="pendenciasMobilidade">
+
+                    @*Partial Pendências Mobilidade*@
+                    <div class="control-group">
+
+                        @*Tabela de pendências*@
+                        <div class="panel-footer">
+
+
+                            @{
+                                var grid = new WebGrid(Model);
+                            }
+@using (@Html.BeginForm("BuscaPendenciasMobilidade", "AtendimentoPendencias"))
+{
+    <table width="97%" border="0">
+        <tr>
+            <td align="right">
+                Busca Nota Fiscal: @Html.TextBox("SearchKey", "")
+            </td>
+            <td align="left">
+                &nbsp;&nbsp;&nbsp;<input type="submit" value="busca" />
+            </td>
+        </tr>
+    </table>
+                            <div id="gridContent1" style=" padding:20px; " class="table-overflow">
+                                @grid.GetHtml(
+                                tableStyle: "webgrid-table",
+                                headerStyle: "webgrid-header",
+                                footerStyle: "webgrid-footer",
+                                alternatingRowStyle: "webgrid-alternating-row",
+                                selectedRowStyle: "webgrid-selected-row",
+                                rowStyle: "webgrid-row-style",
+                                mode: WebGridPagerModes.All,
+
+                                columns:
+                                grid.Columns(
+                                grid.Column("CODIGO_NOTA", format: @<text>  <span class="display-mode">@item.CodigoNota </span> <label id="cod_nota" class="edit-mode">@item.CodigoNota</label> </text>, style: "col1Width" ),
+                                grid.Column("NUMERO_NOTA", "NUMERO NOTA", format: @<text>  <span class="display-mode"> <label id="lblFirstName">@item.NumeroNota</label> </span> </text>, style: "col2Width"),
+                                grid.Column("INICIO_ATENDIMENTO", "INICIO DO ATENDIMENTO", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.DataInicioDesejado</label> </span>   </text>, style: "col2Width"),
+                                grid.Column("DATA_INSTALACAO", "DATA INSTALAÇÃO", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.Instalacao</label> </span> </text>, style: "col2Width"),
+                                grid.Column("DESCRICAO_STATUS_NOTA", "DESCRIÇÃO STATUS NOTA", format: @<text> <span class="display-mode"> <label id="lblstatuaaas">@item.StatusSistema</label> </span>
+                                @{
+                                    @Html.DropDownList("Vstatus", null, new { @class = "edit-mode", @id = "status_edit" });
+                                }  </text>, style: "col2Width"),
+                                grid.Column("STATUS_USUARIO", "STATUS USUARIO", format: @<text> <span class="display-mode"> <label id="lblstatuaaas">@item.StatusUsuario</label> </span>  </text>, style: "col2Width"),
+                                grid.Column("SEGMENTO_CLIENTE", "SEGMENTO CLIENTE", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.SegmentoCliente</label> </span> </text>, style: "col2Width"),
+                                grid.Column("TEXTO_CODE_CODIFICACAO", "TEXTO CODE CODIFICACAO", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.TextoCodCodif</label> </span>   </text>, style: "col2Width"),
+                                grid.Column("CODIGO_PENDENCIA_NOTA", "CODIGO PENDENCIA NOTA", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.CodPendencia</label> </span>   </text>, style: "col2Width"),
+                                grid.Column("DESC_PENDENCIA", "DESC PENDENCIA", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.DescPendencia</label> </span>   </text>, style: "col2Width"),
+                                grid.Column("IDENTIFICACAO_AREA", "IDENTIFICACAO AREA", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.CodAreaDirecionada</label> </span>  </text>, style: "col2Width"),
+                                grid.Column("DESCRICAO_AREA", "DESCRICAO AREA", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.DescAreaDirecionada</label> </span>  </text>, style: "col2Width"),
+                                grid.Column("FIM_ATENDIMENTO", "FIM ATENDIMENTO", format: @<text> <span class="display-mode"> <label id="lblLastName">@item.DataAtendimento</label> </span>   </text>, style: "col2Width"),
+                                grid.Column("RESPONSAVEL", "RESPONSAVEL", format: @<text> <span class="display-mode"> <label id="lblresp">@item.Responsavel</label> </span> @Html.DropDownList("Vusuarios", null, new { @class = "edit-mode", @id = "resp_edit" }) </text>, style: "col2Width"),
+                                grid.Column("DESCRICAO_GRUPO", "GRUPO", format:
+                                @<span>
+                                    <span class="display-mode"> <label id="lblGrupo">@item.GrupoAtendimento</label> </span>
+                                    @{
+                                        string name = (@item.GrupoAtendimento).ToString();
+                                        @Html.DropDownList("Vgrupo", null, new { @class = "edit-mode", @id = "grupo_edit" });
+                                    }
+                                </span>),
+                                grid.Column("OBSERVACAO", "OBSERVACAO", format: @<text> <span class="display-mode"> <label id="lblobs">@item.Observacoes</label> </span>  <input type="text" id="Observacoes" value="@item.Observacoes" class="edit-mode" /> </text>, style: "col2Width"),
+                                grid.Column("Action", format: @<text>
+                                    <button type="button" class="edit-user display-mode">Edit</button>
+                                <button type="button" class="save-user edit-mode">Save</button>
+                                <button type="button" class="cancel-user edit-mode">Cancel</button>
+                                </text>, style: "col3Width", canSort: false)
+                                ))
+                      
+@using (Html.BeginForm("ExportData", "AtendimentoPendencias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+         {
+                                <input type="button" id="consultar" value="Exportar Excel" class="btn btn-default" />
+}
+                            </div>
+
+
+}
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="A104">
+
+                    @*Partial distribuição de pendências*@
+                    <div id="listaA104" class="control-group">
+
+                        @*Tabela de pendências*@
+                        <div class="panel-footer">
+
+                            @Html.Partial("_A104")
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+</
+        </fieldset>
+
+    </div>
+</div>
+
+<style rel="stylesheet" type="text/css">
+    .edit-mode {
+    }
+
+    .edit-user {
+    }
+
+        .edit-user display-mode {
+        }
+
+    .save-user edit-mode {
+    }
+
+    .display-mode {
+    }
+
+    .cancel-user {
+    }
+
+    .webgrid-table {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: 650px;
+        display: table;
+        border-collapse: collapse;
+        border: solid px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header, .webgrid-header a {
+        background-color: #E3E3E3;
+        color: black;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: #F5F5F5;
+        padding: 3px 7px 2px;
+    }
+
+    .col1Width {
+        width: 50px;
+    }
+
+    .col2Width {
+        width: 200px;
+    }
+    .table-overflow {
+    max-height:400px;
+    overflow-y:auto;
+}
+Basta 
+</style>
+
+
+<style rel="stylesheet" type="text/css">
+    fieldset.scheduler-border {
+        border: 1px groove #ccc !important;
+        padding: 0 1.1em 1.1em 1.1em !important;
+        margin: 0 0 1.2em 0 !important;
+        -webkit-box-shadow: 0px 0px 0px 0px #000;
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+        font-size: 1.0em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: inherit; /* Or auto */
+        padding: 0 10px; /* To give a bit of padding on the left and right */
+        border-bottom: none;
+        border-color: #808080;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background-color: #f5f5f5 !important;
+    }
+</style>
+
+@* Scripts *@
+<script type="text/javascript">
+    $(function () {
+        $('.edit-mode').hide();
+        $('.edit-user, .cancel-user').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('#gridContent1 .save-user').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var cod_nota = tr.find("#cod_nota").html();
+            var status_edit = tr.find("#status_edit").val();
+            var grupo_edit = tr.find("#grupo_edit").val();
+            var resp_edit_104 = tr.find("#resp_edit").val();
+            var Observacoes = tr.find("#Observacoes").val();
+            var status = tr.find("#status_edit option:selected").text();
+            var grupo = tr.find("#grupo_edit option:selected").text();
+            var usu = tr.find("#resp_edit_104 option:selected").text();
+            //tr.find("#status_edit").val(status_edit);
+            tr.find("#lblstatus").text(status);
+            tr.find("#lblGrupo").text(grupo);
+            tr.find("#lblresp").text(usu);
+            tr.find("#lblobs").text(Observacoes);
+            tr.find('.edit-mode, .display-mode').toggle();
+            var UserModel =
+            {
+                "cod_nota": cod_nota,
+                "status_edit": status_edit,
+                "grupo_edit": grupo_edit,
+                "resp_edit": resp_edit_104,
+                "Observacoes": Observacoes
+            };
+            $.ajax({
+                url: '@Url.Action("AlterarGridMobilidade", "AtendimentoPendencias")',
+                data: JSON.stringify(UserModel),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    alertify.success('Nota Salva com Sucesso');
+                }
+            });
+
+        });
+
+        $("#consultar").click(function () {
+            var form = $("form");
+            form.attr("action", "@Url.Action("ExportData", "AtendimentoPendencias")");
+            form.submit();
+        });
+    })
+
+</script>

@@ -1,0 +1,78 @@
+﻿@using SGCA.Models.Entity
+@model Atendimento
+@{
+    ViewBag.Title = "_GridAcao";
+}
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse5">Ações</a>
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>*</th>
+                            <th>Código do Ticket</th>
+                            <th>Etapa</th>
+                            <th>Categoria</th>
+                            <th>Status SAP</th>
+                            <th>Observacao</th>
+                            <th>Mensagem</th>
+                            <th>Detalhe Ação</th>
+                            <th>Ponto Focal</th>
+                            <th>Arquivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (Model.Acao != null)
+                            {
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>@Model.Acao.CodigoTicket</td>
+                                    <td>@Model.Acao.CodigoEtapa</td>
+                                    <td>@Model.Acao.CodigoCategoria</td>
+                                    <td>@Model.Acao.CodigoStatusAcaoSap</td>
+                                    <td>@Model.Acao.Observacao</td>
+                                    <td>@Model.Acao.Mensagem</td>
+                                    <td>@Model.Acao.DetalheAcao</td>
+                                    <td>@Model.Acao.TbPontoFocal.DescPontoFocal</td>
+                                    <td>@Html.ActionLink("Download", "Download", new { id = Model.Acao.CodigoTicket, name = Model.Acao.PathUpload })</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            }
+                        }
+
+
+                    </tbody>
+
+                </table>
+            </div>
+               
+            </div>
+   
+
+
+        <div class="panel-footer"></div>
+    </div>
+</div>
+
